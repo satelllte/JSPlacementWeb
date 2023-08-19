@@ -1,0 +1,216 @@
+<div class="allaboutit">
+
+	<p><b>JSplacement</b> is a pseudo-random 8K displacement map generator made with JavaScript on <b>Electron</b>.
+		It generates grayscale height maps that can be used for displacement (and many other things) in various 3D packages and renders.
+		Or even with 3D fractals or various 2D works... Or even as Serum wavetable, apparently...</br></br>
+		JSplacement is made in <b class="fin">Finland</b> with love by <a href="#" onclick="goToPage('https://windmillart.net')"><b class="wml">Windmill</b></a>.</br>
+		Height to normal conversion by <a href="#" onclick="goToPage('https://threejs.org/')">three.js</a> until further notice.
+	</p>
+
+	<p><b>Terms of use</b></br>
+		JSplacement is a free software. Anything generated with it can be used for commercial and non-commercial works. 2D or 3D. Or something else.
+		However, you're not allowed to sell or redistribute this app and/or the maps it generates. That would be a scam, or, as I like to call it, <i>a dick move</i>.</br>
+		If you paid for this application (other than voluntarily using my tip jar) or got it from any source other than <a href="#" onclick="goToPage('https://windmillart.net/?p=jsplacement')">WindmillArt.net</a>, please take necessary precautions and/or ask for a refund.</br>
+	</p>
+
+	<p><b>Privacy</b></br>
+		JSplacement does not collect any user data and, as far as I know, neither does Electron on which it was built. No analytics. No ads. Nothing.
+		However, JSplacement's version checker does perform a single HTTP request on launch to a plain text file on my server to fetch the latest version number.
+		This adds an entry to web server's access logs as if you visited the page in question on your browser. This is what nearly every single website does.
+		If you're feeling uncomfortable with that, feel welcome to block JSplacement in your firewall or disable version checker in JSplacement settings.</br>
+	</p>
+
+	<p><b>
+		Enjoying JSplacement?</b></br>
+		Consider leaving <a href="#" onclick="goToPage('https://www.paypal.me/WMillArt')">a tip on PayPal</a> or <a href="#" onclick="goToPage('https://ko-fi.com/windmill')">coffee on Ko-Fi.com</a> to support the development.</br>
+	</p>
+
+	<p><b>Creators behind splash screens:</b></p>
+
+	<p>
+		<a href="#" onclick="goToPage('https://www.instagram.com/ram3dda/')">Ross A. Morris</a> - Cinema 4D, Octane Render</br>
+		<a href="#" onclick="goToPage('https://www.instagram.com/matnes_design/')">Matnes_Design</a> - Cinema 4D, Octane Render</br>
+		<a href="#" onclick="goToPage('https://windmillart.net')">Me</a> - Cinema 4D, Octane Render</br>
+	</p>
+
+</div>
+
+
+<!-- Changelog -->
+<div class="changelog">
+	<p><b>Release 1.3.0 - 2019 Edition</b></p><p>
+		<span class="fix"><b>[FIX]</b> Fixed issue with invert function in Velvet and dotGrid.</span>
+		<span class="fix"><b>[FIX]</b> Boldly zoom where no zoom tool has zoomed before; the bottom right corner.</span>
+		<span class="fix"><b>[FIX]</b> You can now point cursor to specific area before zooming in. Mouse movement after zooming in no longer required to set position.</span>
+		<span class="add"><b>[ADDED]</b> Light theme. It wasn't april fools, you fools. :^)</span>
+		<span class="add"><b>[ADDED]</b> Automatic creation of CustomSprites folder if it doesn't exist.</span>
+		<span class="add"><b>[ADDED]</b> Automatic creation of CustomGradients folder if it doesn't exist either.</span>
+		<span class="add"><b>[ADDED]</b> Custom gradients for colorizer! Put your own into the folder and go wild!</span>
+		<span class="add"><b>[ADDED]</b> Additional preset gradients for colorizer.</span>
+		<span class="upd"><b>[UPDATE]</b> Changed the way stock gradients are loaded into colorizer.</span>
+		<span class="upd"><b>[UPDATE]</b> Colorizer UI 2.0 - Supports up to 100 images! That's 20 stock and 80 slots for customs as of this update</span>
+		<span class="upd"><b>[UPDATE]</b> A bunch of various small GUI adjustments.</span>
+		<span class="upd"><b>[UPDATE]</b> New work indicator! Extra spicy when used in JSplacement: 2.</span>
+		<span class="add"><b>[ADDED]</b> Aggromaxx - Somewhat aggressive sprite set with tastefully mismatching sprites for JSplacement: 2. Higher iteration count recommended!</span>
+		<span class="upd"><b>[UPDATE]</b> Changed the way JSplacement: 2 sprites are loaded.</span>
+		<span class="rem"><b>[REMOVED]</b> Retired couple of very problematic sprites from JSplacement: 2's Classic set in favor of a speed boost. This is most noticeable when using larger sprite scaling.</span>
+		<span class="note"><b>[NOTE]</b> Additionally, adjusted problematic sprites which caused performance loss.</span>
+	</p>
+
+	<p><b>Release 1.2.1 - HOTFIX</b></p><p>
+		<span class="fix"><b>[FIX]</b> Disabled redundant Chromium feature that was (pointlessly) eating up the performance (especially on Intel graphics on macOS).</span>
+		<span class="upd"><b>[UPDATE]</b> Slight improvement to update checker's version matching.</span>
+		<span class="upd"><b>[UPDATE]</b> Changed icon to match the new style.</span>
+	</p>
+
+	<p><b>Release 1.2.0 - 2018 Edition</b></p><p>
+		<span class="note"><b>[NOTE]</b> I love skipping numbers.</span>
+		<span class="add"><b>[ADDED]</b> Fresh splash screens!</span>
+		<span class="add"><b>[ADDED]</b> Undo button. Let's you go back one step.</span>
+		<span class="add"><b>[ADDED]</b> Normal map export. Because taking extra steps to conver height to normal outside of JSplacement is annoying.</span>
+		<span class="add"><b>[ADDED]</b> Colorizer! Gradient map adjustment now built into JSplacement.</span>
+		<span class="upd"><b>[UPDATE]</b> Fresh new UI for 2018. Old UI looked messy after adding all those new things over time. RIP dark blue, though.</span>
+		<span class="upd"><b>[UPDATE]</b> JSplacement: Classic nearly total overhaul! Now with bunch of individual controls for each type of elements for that much needed extra variety!</span>
+		<span class="add"><b>[ADDED]</b> ...and it comes with randomizer for said controls!</span>
+		<span class="add"><b>[ADDED]</b> ...and presets of those controls!</span>
+		<span class="add"><b>[ADDED]</b> BIG:DATA sprite pack for JSPlacement: 2!</span>
+		<span class="fix"><b>[FIX]</b> Incorrect icon for horizontal bars in JS:Classic is now fixed!</span>
+		<span class="add"><b>[ADDED]</b> JSplacement: Wyre! For all your instant subway map needs!</span>
+		<span class="add"><b>[ADDED]</b> Settings! Essentially just a GUI for jsplacement.conf file.</span>
+		<span class="add"><b>[ADDED]</b> Compact timestamp for file names. No dashes!</span>
+		<span class="add"><b>[ADDED]</b> Ability to skip splash screen if you want to be rude and not admire the JSplacement works of other people. Or just in a rush. I don't judge.</span>
+		<span class="upd"><b>[UPDATE]</b> New version checker. You can also disable it.</span>
+		<span class="upd"><b>[UPDATE]</b> Now using Electron v2 with Node v8!</span>
+		<span class="rem"><b>[DISABLED]</b> JSplacement: Metropolis has been retired until further notice! We all know it was going nowhere. Maybe it'll come back at some point. Who knows?</span>
+	</p>
+
+	<p><b>Release 1.1.1</b></p><p>
+		<span class="fix"><b>[FIX]</b> Missing instruction texture has finally returned to generators' UI.</span>
+		<span class="fix"><b>[FIX]</b> Fixed sprite fetching for JSplacement: 2 and improved exclusion of incompatible files. (Thumbs.db on Windows, .DS_STORE on macOS)</span>
+		<span class="fix"><b>[FIX]</b> Fixed the missing app icon on Linux! Hooray for the little things!</span>
+		<span class="fix"><b>[FIX?]</b> Some background silliness. Honestly don't know what difference does it make, but at least my dev console is no longer complaining.</span>
+		<span class="add"><b>[ADDED]</b> Background brightness slider for JSplacement: 2.</span>
+		<span class="add"><b>[ADDED]</b> Five new sprites for JSplacement: 2's JS2 Classic set.</span>
+		<span class="add"><b>[ADDED]</b> A <a href="#" onclick="goToPage('http://www.beeple-crap.com/')">beeple</a> inspired sprite set, Crap Pack, for JSplacement: 2.</span>
+		<span class="add"><b>[ADDED]</b> Digital guide button added to menu. For those who didn't bother learning the hotkeys, but keep asking me about basic stuff.</span>
+		<span class="note"><b>[NOTE]</b> I feel like I wasted too much time on that "first run" window... And all that effort for nothing...</span>
+	</p>
+
+	<p><b>Release 1.1.0 - That BIG update. Happy birthday, mom!</b></p><p>
+		<span class="add"><b>[ADDED]</b> JSplacement: 2 can now generate seamless maps.</span>
+		<span class="add"><b>[ADDED]</b> JSplacement: 2 some sick nasty switches for seamless generator, sprite rotation, mirroring, and blending. You're in control now!</span>
+		<span class="add"><b>[ADDED]</b> Background draws for JSplacement: 2 to slightly pre-fill canvas to minimize the amount of "holes". Comes with a  brand new slider!</span>
+		<span class="add"><b>[ADDED]</b> First run screen to show users some essential information. This shows up only once if config file is not present.</span>
+		<span class="add"><b>[ADDED]</b> In-app digital guide to show you the way.</span>
+		<span class="note"><b>[NOTE]</b> No page for JSplacement: Metropolis until the full rewrite.</span>
+		<span class="add"><b>[ADDED]</b> Element selector for JSplacement: Classic.</span>
+		<span class="add"><b>[ADDED]</b> New light types and patterning for JSplacement: dotGrid.</span>
+		<span class="add"><b>[ADDED]</b> Extra controls and element selectors for JSplacement: dotGrid.</span>
+		<span class="fix"><b>[UN-FIXED]</b> Glitch in JSplacement: dotGrid. Break the code at will.</span>
+		<span class="add"><b>[ADDED]</b> Zoooooom! Hold Z key to take a closer look at generated maps. Move cursor over zoomed in map to navigate.</span>
+		<span class="add"><b>[ADDED]</b> jsplacement.conf file in JSplacement user directory.</span>
+		<span class="note"><b>[NOTE]</b> jsplacement.conf file is used to block first run window after the first time and also contains future application settings.</span>
+		<span class="upd"><b>[UPDATE]</b> Saving maps now uses real timestamp (yr-mth-d-hr-min-sec) instead of "downscaled" UNIX timestamp (seconds since Jan 1st, 1970).</span>
+		<span class="note"><b>[NOTE]</b> To go back to using UNIX timestamp, set useRealDate to false in jsplacement.conf file located in your home directory.</span>
+		<span class="upd"><b>[UPDATE]</b> JSplacement: 2 file naming scheme changes based whether or not the seamless mode is used to help you sort the output files.</span>
+		<span class="upd"><b>[UPDATE]</b> New scale and chance settings for JSplacement: dotGrid.</span>
+		<span class="upd"><b>[UPDATE]</b> New home screen and animations.</span>
+		<span class="upd"><b>[UPDATE]</b> Some changes to about page.</span>
+		<span class="upd"><b>[UPDATE]</b> Additional splash screens! Enjoy randomly selected splash screen by various users of JSplacement.</span>
+		<span class="upd"><b>[UPDATE]</b> Changed font to generic sans-serif for better readability.</span>
+		<span class="upd"><b>[UPDATE]</b> Cleaner code and folder structure. Removed redundant files.</span>
+		<span class="note"><b>[NOTE]</b> This mostly affects me, testers, and helpers.</span>
+	</p>
+
+	<p><b>Release 1.0.9</b></p><p>
+		<span class="note"><b>[NOTE]</b> Intentionally skipped version 1.0.9 in hopes of getting noticed and hired by Microsoft. Consider this my formal job application.</span>
+	</p>
+
+	<p><b>Release 1.0.8</b></p><p>
+		<span class="fix"><b>[FIXED]</b> Fixed an issue where hidden files created by MacOS broke JS2 when using custom sprites.</span>
+		<span class="fix"><b>[FIXED]</b> Fixed an issue where Ctrl+click on a menu button would open another, smaller, JSplacement app.</span>
+		<span class="add"><b>[ADDED]</b> JSplacement: Velvet cross splitter blending mode selection.</span>
+		<span class="add"><b>[ADDED]</b> JSplacement: dotGrid! - I've heard you like those dot maps for lights. Now you can generate them too.</span>
+		<span class="note"><b>[NOTE]</b> dotGrid is not a displacement generator. I just name it that for consistency. It makes masks for emission/luminance.</span>
+		<span class="note"><b>[NOTE]</b> I lost my icon project file and had to (poorly) re-create the look for dotGrid's icon. (a.k.a. new icons coming in the future update).</span>
+		<span class="upd"><b>[UPDATE]</b> JS:Metropolis WIP returned to main menu also for the consistency.</span>
+		<span class="upd"><b>[UPDATE]</b> JSplacement 2's max scale changed from 125 to 120.</span>
+	</p>
+
+	<p><b>Release 1.0.7</b></p><p>
+		<span class="add"><b>[ADDED]</b> Custom sprite support to JSplacement 2.</span>
+		<span class="note"><b>[NOTE]</b> Instructions for custom sprites can be found on the bottom of the download page.</span>
+		<span class="add"><b>[ADDED]</b> Hotkey for opening CustomSprites location.</span>
+		<span class="add"><b>[ADDED]</b> +1 sprite to JS2 Classic set.</span>
+		<span class="upd"><b>[UPDATE]</b> Fresh new splash screen.</span>
+		<span class="upd"><b>[UPDATE]</b> JS2 sprites are loaded dynamically.</span>
+		<span class="note"><b>[NOTE]</b> Dynamic load allows me to add more sprites and sprite sets with roughly 90% less work.</span>
+		<span class="upd"><b>[UPDATE]</b> Some colors for changelogs to make it a bit easier to read.</span>
+		<span class="fix"><b>[FIXED?]</b> Version checker used cached data instead of contacting server to get new information. This has been fixed with forced cache clearing on start.</span>
+	</p>
+
+	<p><b>Release 1.0.6 - The launch version. Happy birthday, me!</b></p><p>
+		<span class="note"><b>[NOTE]</b> First public version! Happy birthday me!</span>
+		<span class="add"><b>[ADDED]</b> Version checker! If you're outdated, you'll know it. If you're online, ofcourse. Somewhat experimental feature. May not work 100% of the time.</span>
+		<span class="upd"><b>[UPDATE]</b> Saving displacement now has UTC timestamp for the convenience. No more overwrites or manual file renaming!</span>
+		<span class="upd"><b>[UPDATE]</b> Changing generator settings now generates a new map. (Except JS2 sprite set menu).</span>
+		<span class="upd"><b>[UPDATE]</b> A bit cleaner app icon.</span>
+		<span class="rem"><b>[REMOVED]</b> Temporarily removed JSplacement Metropolis menu buttons until proper work begins. Sketch is still accessible via hotkey.</span>
+	</p>
+
+	<p><b>Release 1.0.5</b></p><p>
+		<span class="add"><b>[ADDED]</b> Iteration controls to JSplacement: Velvet.</span>
+		<span class="add"><b>[ADDED]</b> Symmetry control to JSplacement: Velvet.</span>
+		<span class="add"><b>[ADDED]</b> Sprite scale adjustment to JSplacement 2.</span>
+		<span class="add"><b>[ADDED]</b> Sprite set selection to JSplacement 2. More sprite sets in future updates!</span>
+		<span class="add"><b>[ADDED]</b> Temporary DEBUG sprite "set".</span>
+		<span class="add"><b>[ADDED]</b> Warning label to JSplacement: Metropolis (for unaware public).</span>
+		<span class="upd"><b>[UPDATE]</b> Darker hotkey overlay for better visibility over generated maps.</span>
+		<span class="rem"><b>[REMOVED]</b> Sike! DEBUG sprite "set" has already been removed.</span>
+	</p>
+
+	<p><b>Release 1.0.4</b></p><p>
+		<span class="add"><b>[ADDED]</b> Iteration control to JSplacement Classic.</span>
+		<span class="add"><b>[ADDED]</b> Iteration control to JSplacement 2.</span>
+		<span class="add"><b>[ADDED]</b> Invert function to all generators.</span>
+		<span class="add"><b>[ADDED]</b> Pointless splash screen. Everyone loves splash screens!</span>
+		<span class="add"><b>[ADDED]</b> Finally added content to About page.</span>
+		<span class="upd"><b>[UPDATE]</b> Various layout & cosmetic changes.</span>
+		<span class="upd"><b>[UPDATE]</b> Changed the way JSplacement 2 generates map to avoid too small details + performance boost on default value.</span>
+		<span class="fix"><b>[FIXED]</b> Menu and close buttons blinking on page change.</span>
+	</p>
+
+	<p><b>Release 1.0.3b</b></p><p>
+		<span class="fix"><b>[FIXED]</b> Hotkey overlay fix.</span>
+	</p>
+
+	<p><b>Release 1.0.3</b></p><p>
+		<span class="add"><b>[ADDED]</b> Work in progress version of JSplacement: Metropolis for testing and feedback purposes.</span>
+		<span class="add"><b>[ADDED]</b> Hotkeys! Hold X to see them!</span>
+		<span class="upd"><b>[UPDATE]</b> Added some color to the menu :)</span>
+		<span class="upd"><b>[UPDATE]</b> Extra animations :D</span>
+	</p>
+
+	<p><b>Release 1.0.2</b></p><p>
+		<span class="add"><b>[ADDED]</b> A full menu instead of just a return button.</span>
+		<span class="add"><b>[ADDED]</b> Animations :D</span>
+		<span class="upd"><b>[UPDATE]</b> Overall design of the app.</span>
+		<span class="upd"><b>[UPDATE]</b> Changed the way pages are loaded. Say good bye to that nasty blink!</span>
+		<span class="upd"><b>[UPDATE]</b> JSplacement variants won't pre-generate after selection. This made JS2 much faster!</span>
+	</p>
+
+	<p><b>Release 1.0.1</b></p><p>
+		<span class="add"><b>[ADDED]</b> Changelog! :D</span>
+		<span class="add"><b>[ADDED]</b> About page - Currently WIP with a blank right side.</span>
+		<span class="fix"><b>[FIXED]</b> JSplacement 2 not saving displacement map.</span>
+	</p>
+
+	<p><b>Release 1.0.0</b></p><p>
+		<span class="note"><b>[NOTE]</b> Initial private release as an app on Windows and Mac.</span>
+	</p>
+</div>
+
+<script src="req/js/sys/jsunloader.js"></script>
+<script>
+	var guidepage = "index";
+</script>

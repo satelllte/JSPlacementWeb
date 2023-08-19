@@ -1,0 +1,217 @@
+<div class="canvasbox">
+	<div class="viewcontrols disabled">
+		<a href="#" onclick="showHeight(1);">Height</a>
+		<a href="#" onclick="showHeight(0);">Color</a>
+	</div>
+	<div class="canvasboxinner">
+		<canvas id="dis" generated="nope" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+		<canvas id="dat" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+	</div>
+</div>
+
+<div class="editorbox">
+
+	<!-- Sliders -->
+	<div class="sliderbox2w">
+		<div class="values">Layer count <output id="layers">35</output></div>
+		<div class="slider"><input type="range" value="35" min="2" max="255" step="1" onchange="setValue('#layers',value);refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Wires per layer <output id="wpl">3</output></div>
+		<div class="slider"><input type="range" value="3" min="1" max="25" step="1" onchange="setValue('#wpl',value);refresh()"></div>
+	</div>
+
+	<div class="sliderbox2w">
+		<div class="values">Max wire width <output id="linewidth">64</output></div>
+		<div class="slider"><input type="range" value="64" min="16" max="256" step="1" onchange="setValue('#linewidth',value);refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Max origin spread <output id="spread">0</output></div>
+		<div class="slider"><input type="range" value="0" min="0" max="2048" step="32" onchange="setValue('#spread',value);refresh()"></div>
+	</div>
+
+	<div class="sliderbox2w">
+		<div class="values">Min step length <output id="minstep">128</output></div>
+		<div class="slider"><input type="range" value="128" min="32" max="512" step="32" onchange="setValue('#minstep',value);refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Max step length <output id="maxstep">2048</output></div>
+		<div class="slider"><input type="range" value="2048" min="512" max="4096" step="128" onchange="setValue('#maxstep',value);refresh()"></div>
+	</div>
+
+	<div style="clear:both"></div>
+	<div class="horispacer"></div>
+
+	<!-- Radio -->
+
+	<div class="editlabel">Wire color mode</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="colormode0" name="colormode" value="0" checked="checked" onchange="refresh()">
+		<label for="colormode0">Linear</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="colormode1" name="colormode" value="1" onchange="refresh()">
+		<label for="colormode1">Inverted linear</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="colormode2" name="colormode" value="2" onchange="refresh()">
+		<label for="colormode2">Curve</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="colormode3" name="colormode" value="3" onchange="refresh()">
+		<label for="colormode3">Inverted curve</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="colormode4" name="colormode" value="4" onchange="refresh()">
+		<label for="colormode4">Random</label>
+		<div class="check"></div>
+	</div>
+
+	<div style="clear:both"></div>
+	<div class="sliderspacer"></div>
+
+	<div class="editlabel">Wire width mode</div>
+
+
+
+	<div class="radiobox5w">
+		<input type="radio" id="scalemode0" name="scalemode" value="0" onchange="refresh()">
+		<label for="scalemode0">Linear</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="scalemode1" name="scalemode" value="1" onchange="refresh()">
+		<label for="scalemode1">Inverted linear</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="scalemode2" name="scalemode" value="2" onchange="refresh()">
+		<label for="scalemode2">Curve</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="scalemode3" name="scalemode" value="3" onchange="refresh()">
+		<label for="scalemode3">Inverted curve</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="scalemode4" name="scalemode" value="4" checked="checked" onchange="refresh()">
+		<label for="scalemode4">Random</label>
+		<div class="check"></div>
+	</div>
+
+	<div style="clear:both"></div>
+	<div class="sliderspacer"></div>
+
+
+	<div class="editlabel">Step directions</div>
+
+
+	<div class="radiobox5w">
+		<input type="radio" id="diremode0" name="diremode" value="0" checked="checked" onchange="refresh()">
+		<label for="diremode0">Any</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="diremode1" name="diremode" value="1" onchange="refresh()">
+		<label for="diremode1">Cardinal</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="diremode2" name="diremode" value="2" onchange="refresh()">
+		<label for="diremode2">Diagonal</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox5w">
+		<input type="radio" id="diremode3" name="diremode" value="3" onchange="refresh()">
+		<label for="diremode3">Conical</label>
+		<div class="check"></div>
+	</div>
+
+</div>
+
+<div id="colorizer" class="hidden">
+	<a href="#" onclick='toggleColorizer()'>
+		<div class="coloreturn">
+			<svg width="100%" height="100%" viewBox="0 0 15 15" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+				<path d="M12.188,0l-3.751,0l-5.625,7.5l5.625,7.5l3.75,0l-5.625,-7.5l5.625,-7.5Z"/>
+			</svg>
+		</div>
+	</a>
+	<span id="gradients">
+
+	</span>
+</div>
+
+<div class="actionbox">
+	<a href="#" class="generate" onclick="refresh()">Generate</a>
+	<a href="#" class="height disabled" onclick="saveHeight(savename)">Save Height</a>
+	<a href="#" class="undo disabled" onclick="undoMap()">Undo</a>
+	<a href="#" class="invert disabled" onclick="invertMap()">Invert</a>
+	<a href="#" class="normal disabled" onclick="saveNormal(savename)">Save Normal</a>
+	<a href="#" class="colorize disabled" onclick='toggleColorizer()'>Toggle colorizer</a>
+	<a href="#" class="color disabled" onclick="saveColor(savename)">Save Color</a>
+</div>
+
+<script>
+	function setValue(id,value) {
+		document.querySelector(id).value = value;
+	}
+</script>
+<script src="req/js/gen/common/common.js"></script>
+<script src="req/js/gen/common/colorizer.js"></script>
+<script src="req/js/gen/js-wyre/js-wyre.js"></script>
+<script>
+	var savename = "JS-Wyre-";
+	var seamlsmode;
+	var timestamp;
+	var guidepage = "jsw";
+	$(function() {
+		$("#colorizer").load("pages/gradients.html");
+	});
+</script>

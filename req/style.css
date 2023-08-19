@@ -1,0 +1,1504 @@
+/* Main body */
+
+*, *::after, *::before {
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-app-region: no-drag;
+}
+
+body{
+  background-color: #181818;
+  margin: 0; padding: 0;
+  font-family: sans-serif;
+  color: #BBB;
+  font-size: 14px;
+  user-select: none;
+  overflow: hidden;
+  height: 1280px;
+  width: 1280px;
+}
+
+a, a:visited{
+  color: #F44;
+  text-decoration: none;
+  transition: color 150ms ease-in-out;
+}
+
+a:hover{
+  color: #FFF;
+}
+
+/* DEBUG LEVEL ELEMENTS */
+
+
+
+
+/* Title bar */
+
+#titlebar{
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 50;
+  background-color: #121212;
+  width: 100%;
+  height: 40px;
+}
+
+#titlebar .dragger{
+  -webkit-app-region: drag !important;
+  width: 1200px;
+  height: 27px;
+  padding-top: 13px;
+  position: relative;
+  left: 40px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#container{
+  width: 1280px;
+  height: 700px;
+  position: absolute;
+  z-index: 1;
+  top: 60px; left: 0px;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out, filter 100ms ease-in-out, transform 150ms ease-in-out;
+  filter: blur(0px);
+}
+
+#container.blurd{
+  filter: blur(5px) !important;
+}
+
+#container.hiding{
+  opacity: 0;
+}
+
+#container.colorizer{
+	transform: translateX(700px);
+}
+
+.closebutton{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 110;
+  top: 0px; right: 0px;
+  fill: #811;
+  transition: transform 150ms ease-in-out, fill 150ms ease-in-out;
+}
+
+.closebutton:hover{
+  transform: rotate(90deg);
+  fill: #F44;
+}
+
+/* Footer */
+footer{
+  height: 39px;
+  width: 1200px;
+  position: absolute;
+  bottom: 0; left: 40px;
+  border-top: 1px solid rgba(35,35,35,1);
+  transition: all 150ms ease-in-out;
+}
+
+footer #vercheck{
+  display: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 0; right: -10px;
+  padding: 5px 5px 5px 5px;
+  z-index: 1;
+  transition: all 150ms ease-in-out;
+	text-align: right;
+}
+
+footer #vercheck:hover{
+  /* background: #232323; */
+}
+
+
+footer #vercheck a{
+  background-image: url(./img/upd.svg);
+  background-repeat: no-repeat;
+  background-size: 30px 120px;
+  display: block;
+  width: 30px; height: 30px;
+  z-index: 1;
+}
+
+footer #vercheck .checking{ background-position: 0px 0px; }
+footer #vercheck .uptodate{ background-position: 0px -30px; }
+footer #vercheck .newavailable{ background-position: 0px -60px; }
+footer #vercheck .failure{ background-position: 0px -90px; }
+
+footer #vercheck *::before{
+  content: '';
+  height: 16px;
+  width: 175px;
+  padding: 12px 15px 11px 10px;
+  display: block;
+  position:absolute;
+  right: 30px; bottom: 0px;
+  color: #888;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 150ms ease-in-out;
+}
+
+footer #vercheck:hover *::before{
+  opacity: 1;
+}
+
+footer #vercheck .newavailable{
+  cursor: pointer;
+}
+
+footer #vercheck:hover .checking::before{ content: 'Checking for an update...'; }
+footer #vercheck:hover .uptodate::before{ content: 'JSplacement is up-to-date!'; }
+footer #vercheck:hover .newavailable::before{ color: #4F4; content: 'New version available!'; }
+footer #vercheck:hover .failure::before{ color: #F44; content: 'Connection failed.'; }
+
+/* Hotkeys */
+#hotkeys{
+  position: absolute;
+  z-index: 1000;
+  top: 40px; left: 0;
+  bottom: 0; right: 0;
+  background-color: rgba(24,24,24,0.7);
+  background-image: url("./img/hotkeys.png");
+  background-size: 1280px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 1;
+  transition: opacity 100ms ease-in-out;
+}
+
+#hotkeys.invisible{
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Guide */
+#digiguide{
+  position: absolute;
+  z-index: 2000;
+  top: 0; left: 0;
+  bottom: 0; right: 0;
+  background-color: none;
+  opacity: 1;
+  transition: opacity 100ms ease-in-out;
+}
+
+#digiguide.invisible{
+  opacity: 0;
+  pointer-events: none;
+}
+
+#guide{
+  position: absolute;
+  top: 40px; left: 0px;
+  bottom: 0px; right: 0px;
+  padding: 20px 40px 20px 40px;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.closeguide{
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+
+#digiguide h2{
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#digiguide img{
+	float: right;
+	width: 300px;
+	margin-left: 25px;
+	border-radius: 5px;
+}
+/* Splash screen */
+
+#splash{
+  position: absolute;
+  z-index: 5000;
+  width: 1280px;
+  height: 800px;
+  background: #232323;
+  background-size: cover;
+  transform: translateY(802px);
+  transition: transform 150ms ease-in-out;
+}
+
+#splash.visible{
+  transform: translateY(0px);
+}
+
+#splash .vernum{
+  position: absolute;
+  bottom: 50px;
+  left: 40px;
+}
+
+#splash.skip{
+  display: none;
+}
+
+/* Main Menu */
+
+#homebg{
+  position: absolute;
+  top: -20px; left: 0;
+  right: 0; bottom: 0px;
+  z-index: 10;
+  background: url('img/home.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+#mainmenu{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 150px;
+  text-align: center;
+}
+
+#mainmenu img{
+  width: 48px;
+  margin: 0px 20px 0px 20px;
+  transform: scale(1);
+  transition: transform 150ms ease-in-out;
+  border-radius: 50%;
+}
+
+#mainmenu img:hover{
+  transform: scale(1.75);
+}
+
+
+/* Side Menu */
+
+.menubutton{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 210;
+  top: 0px; left: 0px;
+  fill: #888;
+  transition: transform 150ms ease-in-out, fill 150ms ease-in-out;
+}
+
+.menubutton:hover,
+.menubutton.visible{
+  transform: rotate(90deg);
+  fill: #F44;
+}
+
+#sidemenu{
+  width: 250px;
+  position: absolute;
+  top: 40px; left: -250px;
+  height: 760px;
+  background: #121212;
+  transition: left 150ms ease-in-out;
+  z-index: 200;
+}
+
+#sidemenu.visible{
+  left: 0px;
+}
+
+#sidemenu a .selector{
+  width: 210px;
+  padding: 17px 20px 17px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #232323;
+  background-color: rgba(35,35,35,0);
+  color: #888;
+  border-left: 0px solid #000;
+  transition: background 150ms ease-in-out, padding-right 150ms ease-in-out, border-left 150ms ease-in-out;
+}
+
+#sidemenu .sidespacer{
+  width: 250px;
+  height: 40px;
+}
+
+#sidemenu .sidespacer.first{
+  height: 20px;
+}
+
+#sidemenu a .selector:hover{
+  background-color: rgba(35,35,35,1);
+  padding-right: 10px;
+  border-left: 10px solid #FF4444;
+  color: #FFF;
+}
+
+#sidemenu a .selector.js:hover{ border-left: 10px solid #55DD55; }
+#sidemenu a .selector.js2:hover{ border-left: 10px solid #0088FF; }
+#sidemenu a .selector.jsv:hover{ border-left: 10px solid #8800FF; }
+#sidemenu a .selector.jsm:hover{ border-left: 10px solid #c3c300; }
+#sidemenu a .selector.jsw:hover{ border-left: 10px solid #00c3c3; }
+#sidemenu a .selector.jsdg:hover{ border-left: 10px solid #F08; border-bottom: 0; }
+
+#sidemenu a .selector.home,
+#sidemenu a .selector.jsdg,
+#sidemenu a .selector.last{
+  border-bottom: 0;
+}
+
+/* Home */
+
+img#mainlogo{
+  width: 194.5px;
+  height: 194.5px;
+  position: absolute;
+  top: 116px;
+  left: 540px;
+  pointer-events: none;
+}
+
+/* About */
+.allaboutit{
+  width: 640px;
+  padding-right: 9px;
+  border-right: 1px solid #232323;
+  position: absolute;
+	text-align: justify;
+  top: -10px;
+  left: 40px;
+  bottom: 10px;
+}
+
+.changelog{
+  width: 530px;
+  padding-right: 10px;
+  position: absolute;
+  top: -10px;
+  right: 40px;
+  bottom: 10px;
+  overflow-x:auto;
+  overflow-y:scroll;
+}
+
+.changelog p span{
+  min-width: 500px;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+.note b{ color: #08F; }
+.fix b{ color: #F80; }
+.add b{ color: #4F4; }
+.upd b{ color: #F08; }
+.rem b{ color: #F44; }
+
+/* Settings */
+
+.settingbox{
+  float: left;
+  display: block;
+  width: 590px;
+  height: 690px;
+  margin: 0px 10px 0px 40px;
+}
+
+.settinbox .settingtitle{
+  width: 590px;
+  margin-bottom: 15px;
+}
+
+.settingbox #showtime{
+  width: 570px;
+  padding: 12px 10px 12px 10px;
+  background: #232323;
+  margin-bottom: 20px;
+}
+
+.settingbox:nth-child(even){
+  margin: 0px 40px 0px 10px;
+}
+
+.settingbox .radiobox3w{
+  width: 126px;
+  float: left;
+  padding: 0px; margin: 0 35.3333px 20px 35.3333px;
+}
+
+.settingbox .radiobox3w input[type="radio"]{
+  display: none;
+}
+
+.settingbox .radiobox3w label{
+  width: 126px;
+  padding: 12px 0px 12px 0px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.settingbox .radiobox3w label:hover{
+  color: #FFF;
+}
+
+.settingbox .radiobox3w .check{
+  background: #323232;
+  width: 60px;
+  height: 2px;
+  position: absolute;
+  margin-top: -2px;
+  margin-left: 33px;
+  transition: all 150ms ease-in-out;
+  pointer-events: none;
+}
+
+.settingbox .radiobox3w label:hover ~ .check{
+  height: 4px;
+  margin-top: -4px;
+}
+
+.settingbox .radiobox3w input[type="radio"]:checked ~ label{
+  color: #FFF;
+}
+.settingbox .radiobox3w input[type="radio"]:checked ~ .check{
+  background: #4F4;
+  height: 4px;
+  margin-top: -4px;
+}
+
+
+/* Generator canvas */
+
+.canvasbox{
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 40px;
+  z-index: 100;
+  background: #202020;
+  background-image: url("./img/canbg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.canvasbox .viewcontrols{
+  opacity: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 150;
+  pointer-events: none;
+  transition: opacity 150ms ease-in-out;
+}
+
+.canvasbox:hover .viewcontrols{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.canvasbox .viewcontrols.hidden,
+.canvasbox .viewcontrols.disabled,
+.canvasbox:hover .viewcontrols.hidden{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.canvasbox .viewcontrols a{
+  width: 75px;
+  background: #121212;
+  margin-right: 5px;
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 5px 0px 4px 0px;
+}
+
+.canvasboxinner{
+	width: 500px;
+	height: 500px;
+  position: absolute;
+	overflow: hidden;
+}
+
+canvas#dis{
+  width: 500px;
+  height: 500px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 100;
+}
+
+canvas#dis.hidden{
+  opacity: 0;
+}
+
+canvas#dat{
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  z-index: 99;
+}
+
+canvas#dis.zoomed,
+canvas#dat.zoomed{
+	width: 3000px;
+	height: 3000px;
+	cursor: default;
+	pointer-events: none;
+}
+
+#imgs img{
+  width: 0px;
+  height: 0px;
+}
+
+/* Generator Controls */
+
+.editorbox{
+  width: 680px;
+  height: 690px;
+  position: absolute;
+  left: 550px;
+  border-left: 1px solid #232323;
+  padding-left: 9px;
+  font-size: 14px;
+  z-index: 86;
+	opacity: 1;
+	transition: all 150ms ease-in-out;
+}
+
+#container.colorizer .editorbox{
+	opacity: 0;
+}
+
+.editlabel{
+  width: 660px;
+  padding: 0px 10px 0px 10px;
+}
+
+/* JS-Classic specific */
+
+.checkNtweak{
+  width: 660px;
+  margin: 10px;
+  display: block;
+}
+
+.checkNtweak input[type=checkbox]{
+  display: none;
+}
+
+.checkNtweak input[type=checkbox] ~ label{
+  width: 60px;
+  height: 60px;
+  display: block;
+  background: #191919;
+  border-left: 1px solid #888;
+  padding-left: 4px;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+  float:left;
+}
+
+.checkNtweak input[type=checkbox] ~ label:hover{
+  background: #202020;
+  border-left: 5px solid #888;
+  padding-left: 0px;
+}
+
+.checkNtweak input[type=checkbox]:checked ~ label{
+  background: #202020;
+  border-left: 5px solid #4F4;
+  padding-left: 0px;
+}
+
+.checkNtweak input[type=checkbox] ~ label svg{
+  width: 40px;
+  margin: 10px;
+  fill: #888;
+  stroke: #888;
+  transition: all 150ms ease-in-out;
+}
+
+.checkNtweak input[type=checkbox]:checked ~ label svg{
+  fill: #FFF;
+  stroke: #FFF;
+}
+
+.checkNtweak .Ntweak{
+  width: 590px;
+  height: 50px;
+  padding: 5px 5px 5px 0px;
+  display: block;
+  float: left;
+  transition: all 150ms ease-in-out;
+}
+
+.checkNtweak input[type=checkbox] ~ .Ntweak{
+  background: #191919;pointer-events: none;
+}
+.checkNtweak input[type=checkbox] ~ label:hover ~ .Ntweak{
+  background: #202020;pointer-events: none;
+}
+.checkNtweak input[type=checkbox]:checked ~ .Ntweak{
+  background: #202020;pointer-events: all;
+}
+
+.checkNtweak input[type=checkbox] ~ .Ntweak *,
+.checkNtweak input[type=checkbox] ~ label:hover ~ .Ntweak *{
+  opacity: 0.5;
+  transition: all 150ms ease-in-out;
+}
+.checkNtweak input[type=checkbox]:checked ~ .Ntweak *,
+.checkNtweak input[type=checkbox]:checked ~ label:hover ~ .Ntweak *{
+  opacity: 1;
+}
+
+.Ntweak .tweak2w,
+.Ntweak .tweak2w.dual{
+  width: 285px;
+  height: 50px;
+  padding: 0px;
+  display: block;
+  float: left; display: block;
+}
+
+.Ntweak .tweak3w,
+.Ntweak .tweak3w.dual{
+  width: 183.33px;
+  height: 50px;
+  padding: 0px;
+  display: block;
+  float: left; display: block;
+}
+
+.Ntweak .tweak4w,
+.Ntweak .tweak4w.dual{
+  width: 132.5px;
+  height: 50px;
+  padding: 0px;
+  display: block;
+  float: left; display: block;
+}
+
+.Ntweak .values{
+  padding: 2 0 2 0;
+}
+
+.Ntweak .dual{ text-align: center;}
+
+.Ntweak output{
+  font-weight: bold;
+  display: block;
+  width: 40px;
+  color: #FFF;
+}
+.Ntweak output.min{
+  float: left;
+  text-align: left;
+}
+
+.Ntweak output.max,
+.Ntweak output{
+  float: right;
+  text-align: right;
+}
+
+.Ntweak .rosentti::after{
+  content: ' %';
+}
+
+.Ntweak input[type=range]{
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #323232;
+  margin: 8 0 0 0;
+  cursor: pointer;
+  transition: height 150ms ease-in-out, margin 150ms ease-in-out;
+}
+
+.Ntweak input[type=range]:hover,
+.Ntweak input[type=range]:active{
+  height: 8px;
+  margin: 6 0 0 0;
+}
+
+.Ntweak input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: #F08;
+  cursor: pointer;
+  transition: background 150ms ease-in-out;
+}
+
+.Ntweak input[type=range]:hover::-webkit-slider-thumb,
+.Ntweak input[type=range]:active::-webkit-slider-thumb{
+  background: #F80;
+}
+
+#presetlist{
+  position: absolute;
+  right: 0; top: -20px; bottom: -40px;
+  width: 200px;
+  padding-top: 20px;
+  background: #121212;
+  z-index: 150;
+  transition: all 150ms ease-in-out;
+}
+
+#presetlist.hidden{
+  transform: translateX(200px);
+}
+
+#presetlist a{
+  display: block;
+  text-align: center;
+  width: 200px;
+  background: #121212;
+  padding: 4 0 4 0;
+  color: #888;
+  margin: 0 0 1px 0;
+  border-bottom: 1px solid #232323;
+  transition: all 150ms ease-in-out;
+}
+
+#presetlist a:hover{
+  background: #232323;
+  color: #FFF;
+}
+
+#presetlist ~ .presethider{
+  position: absolute;
+  left: 0px; top: -20px;
+  bottom: 0; right: 200px;
+  z-index: 150;
+}
+
+#presetlist.hidden ~ .presethider{
+  display: none;
+}
+
+.newactions{
+  position: absolute;
+  bottom: 10px; right: 30px;
+  z-index: 150;
+}
+
+.newactions a,
+.newactions a:visited{
+  font-size: 18px;
+  width: 215px;
+  padding: 15 15 14 10;
+  background: #202020;
+  border: 0; margin: 0px 10px 0px 0px;
+  color: #BBB; float: left;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  border-left-width: 5px;
+  border-left-style: solid;
+  transition: all 150ms ease-in-out;
+}
+
+.newactions a:hover{
+  padding: 15 15 14 0;
+  border-left-width: 15px;
+  background: #282828;
+}
+
+.newactions a.active{
+  padding: 15 15 14 0;
+  border-left-width: 15px;
+  background: #282828;
+}
+
+.codebreak{
+  position: absolute;
+  bottom: 0;
+  color: #F44;
+}
+
+/* 2 wide sliders */
+
+.sliderbox2w{
+  width: 315px;
+  padding: 0 10 0 10;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.sliderbox2w .values{
+  padding: 2 0 2 0;
+}
+
+.sliderbox2w .slider{
+  height: 20px;
+}
+
+.sliderbox2w .slider input[type=range]{
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #323232;
+  margin: 8 0 0 0;
+  cursor: pointer;
+  transition: height 150ms ease-in-out, margin 150ms ease-in-out;
+}
+
+.sliderbox2w .slider input[type=range]:hover,
+.sliderbox2w .slider input[type=range]:active{
+  height: 8px;
+  margin: 6 0 0 0;
+}
+
+.sliderbox2w .slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: #F08;
+  cursor: pointer;
+  transition: background 150ms ease-in-out;
+}
+
+.sliderbox2w .slider input[type=range]:hover::-webkit-slider-thumb,
+.sliderbox2w .slider input[type=range]:active::-webkit-slider-thumb{
+  background: #F80;
+}
+
+.sliderbox2w output{
+  float: right;
+  color: #FFF;
+  font-weight: bold;
+}
+
+/* 7 wide switches */
+
+.switchbox7w{
+  width: 68.5px;
+  padding: 0 10 0 10;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.switchbox7w input[type=checkbox]{
+  visibility: hidden;
+}
+
+.switchbox7w .switchname{
+  width: 68.5px;
+  text-align: center;
+  padding: 2 0 2 0;
+}
+
+.switchbox7w .switch{
+  position: absolute;
+  width: 50px;
+  height: 20px;
+  padding: 0px 9.25px 0px 9.25px;
+}
+
+.switchbox7w .switch label{
+  width: 30px;
+  height: 4px;
+  margin-top: -11px;
+  margin-left: 10px;
+  background: #323232;
+  display: block;
+  position: absolute;
+  transition: height 150ms ease-in-out, margin-top 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.switchbox7w .switch:hover label{
+  height: 8px;
+  margin-top: -13px;
+}
+
+.switchbox7w .switch label::after{
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  position: absolute;
+  margin-top: -4px;
+  margin-left: -6px;
+  background: #F44;
+  cursor: pointer;
+  transition: background 150ms ease-in-out, margin-top 150ms ease-in-out, margin-left 150ms ease-in-out;
+}
+
+.switchbox7w .switch:hover label::after,
+.switchbox7w input[type=checkbox]:checked + label:hover::after{
+  margin-top: -2px;
+}
+
+.switchbox7w input[type=checkbox]:checked + label::after{
+  margin-left: 24px;
+  background: #5D5;
+}
+
+/* 6 wide switches */
+
+.switchbox6w{
+  width: 85px;
+  padding: 0 10 0 10;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.switchbox6w input[type=checkbox]{
+  visibility: hidden;
+}
+
+.switchbox6w .switchname{
+  width: 85px;
+  text-align: center;
+  padding: 2 0 2 0;
+}
+
+.switchbox6w .switch{
+  position: absolute;
+  width: 50px;
+  height: 20px;
+  padding: 0px 17.5px 0px 17.5px;
+}
+
+.switchbox6w .switch label{
+  width: 30px;
+  height: 4px;
+  margin-top: -11px;
+  margin-left: 10px;
+  background: #323232;
+  display: block;
+  position: absolute;
+  transition: height 150ms ease-in-out, margin-top 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.switchbox6w .switch:hover label{
+  height: 8px;
+  margin-top: -13px;
+}
+
+.switchbox6w .switch label::after{
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  position: absolute;
+  margin-top: -4px;
+  margin-left: -6px;
+  background: #F44;
+  cursor: pointer;
+  transition: background 150ms ease-in-out, margin-top 150ms ease-in-out, margin-left 150ms ease-in-out;
+}
+
+.switchbox6w .switch:hover label::after,
+.switchbox6w input[type=checkbox]:checked + label:hover::after{
+  margin-top: -2px;
+}
+
+.switchbox6w input[type=checkbox]:checked + label::after{
+  margin-left: 24px;
+  background: #5D5;
+}
+
+/* 4 wide switches */
+
+.switchbox4w{
+  width: 150px;
+  padding: 0 10 0 10;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.switchbox4w input[type=checkbox]{
+  visibility: hidden;
+}
+
+.switchbox4w .switchname{
+  width: 150px;
+  text-align: center;
+  padding: 2 0 2 0;
+}
+
+.switchbox4w .switch{
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  padding: 0px 25px 0px 25px;
+}
+
+.switchbox4w .switch label{
+  width: 30px;
+  height: 4px;
+  margin-top: -11px;
+  margin-left: 35px;
+  background: #323232;
+  display: block;
+  position: absolute;
+  transition: height 150ms ease-in-out, margin-top 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.switchbox4w .switch:hover label{
+  height: 8px;
+  margin-top: -13px;
+}
+
+.switchbox4w .switch label::after{
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  position: absolute;
+  margin-top: -4px;
+  margin-left: -6px;
+  background: #F44;
+  cursor: pointer;
+  transition: background 150ms ease-in-out, margin-top 150ms ease-in-out, margin-left 150ms ease-in-out;
+}
+
+.switchbox4w .switch:hover label::after,
+.switchbox4w input[type=checkbox]:checked + label:hover::after{
+  margin-top: -2px;
+}
+
+.switchbox4w input[type=checkbox]:checked + label::after{
+  margin-left: 24px;
+  background: #5D5;
+}
+
+/* 2 wide switches */
+
+.switchbox2w{
+  width: 300px;
+  padding: 0 10 0 10;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.switchbox2w input[type=checkbox]{
+  visibility: hidden;
+}
+
+.switchbox2w .switchname{
+  width: 300px;
+  text-align: center;
+  padding: 2 0 2 0;
+}
+
+.switchbox2w .switch{
+  position: absolute;
+  width: 200px;
+  height: 20px;
+  padding: 0px 25px 0px 25px;
+}
+
+.switchbox2w .switch label{
+  width: 30px;
+  height: 4px;
+  margin-top: -11px;
+  margin-left: 110px;
+  background: #323232;
+  display: block;
+  position: absolute;
+  transition: height 150ms ease-in-out, margin-top 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.switchbox2w .switch:hover label{
+  height: 8px;
+  margin-top: -13px;
+}
+
+.switchbox2w .switch label::after{
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  position: absolute;
+  margin-top: -4px;
+  margin-left: -6px;
+  background: #F44;
+  cursor: pointer;
+  transition: background 150ms ease-in-out, margin-top 150ms ease-in-out, margin-left 150ms ease-in-out;
+}
+
+.switchbox2w .switch:hover label::after,
+.switchbox2w input[type=checkbox]:checked + label:hover::after{
+  margin-top: -2px;
+}
+
+.switchbox2w input[type=checkbox]:checked + label::after{
+  margin-left: 24px;
+  background: #5D5;
+}
+
+/* 5 wide Radio */
+
+.radiobox5w{
+  width: 126px;
+  float: left;
+  padding: 0px; margin-bottom: 20px;
+}
+
+.radiobox5w input[type="radio"]{
+  display: none;
+}
+
+.radiobox5w label{
+  width: 126px;
+  padding: 12px 0px 12px 0px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.radiobox5w label:hover{
+  color: #FFF;
+}
+
+.radiobox5w .check{
+  background: #323232;
+  width: 60px;
+  height: 2px;
+  position: absolute;
+  margin-top: -2px;
+  margin-left: 33px;
+  transition: all 150ms ease-in-out;
+  pointer-events: none;
+}
+
+.radiobox5w label:hover ~ .check{
+  height: 4px;
+  margin-top: -4px;
+}
+
+.radiobox5w input[type="radio"]:checked ~ label{
+  color: #FFF;
+}
+.radiobox5w input[type="radio"]:checked ~ .check{
+  background: #4F4;
+  height: 4px;
+  margin-top: -4px;
+}
+
+/* 3 wide Radio */
+
+.radiobox3w{
+  width: 213.333333px;
+  float: left;
+  padding: 0px; margin-bottom: 20px;
+
+}
+
+.radiobox3w input[type="radio"]{
+  display: none;
+}
+
+.radiobox3w label{
+  width: 213.333333px;
+  padding: 12px 0px 12px 0px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.radiobox3w label:hover{
+  color: #FFF;
+}
+
+.radiobox3w .check{
+  background: #323232;
+  width: 63.333333px;
+  height: 2px;
+  position: absolute;
+  margin-top: -2px;
+  margin-left: 75px;
+  transition: all 150ms ease-in-out;
+  pointer-events: none;
+}
+
+.radiobox3w label:hover ~ .check{
+  height: 4px;
+  margin-top: -4px;
+}
+
+.radiobox3w input[type="radio"]:checked ~ label{
+  color: #FFF;
+}
+.radiobox3w input[type="radio"]:checked ~ .check{
+  background: #4F4;
+  height: 4px;
+  margin-top: -4px;
+}
+
+/* Sprite set radio */
+
+.spritesets{
+  width: 680px;
+  border-bottom: 1px solid #232323;
+  margin-bottom: 9px;
+}
+
+.spriteset{
+  width: 220px;
+  height: 50px;
+  display: block;
+  position: relative;
+  padding: 0px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.spriteset label{
+  width: 220px;
+  position: absolute;
+  left: 0;
+  z-index: 5;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  background: #202020;
+  padding: 17px 0px 17px 0px;
+  transition: background 150ms ease-in-out;
+}
+
+.spriteset label:hover{
+  background: #282828;
+}
+
+.spriteset input[type=radio]{
+  visibility: hidden;
+}
+
+.spriteset input[type=radio] + .check{
+  width: 215px;
+  height: 50px;
+  position: absolute;
+  z-index: 10;
+  top: 0; left: 0; bottom: 0; right: 0;
+  border-left: 5px solid #F44;
+  pointer-events: none;
+  transition: border 150ms ease-in-out, width 150ms ease-in-out, height 150ms ease-in-out;
+}
+
+.spriteset input[type=radio]:hover + .check{
+  width: 205px;
+  height: 50px;
+  top: 0; left: 0; bottom: 0; right: 0;
+  border-left: 15px solid #F44;
+}
+
+.spriteset input[type=radio]:checked + .check{
+  width: 205px;
+  height: 50px;
+  border-left: 15px solid #4F4;
+}
+
+/* Spacers */
+
+.sliderspacer{
+  width: 10px;
+  height: 40px;
+  float: left;
+  display: block;
+}
+
+.sliderspacer2{
+  width: 20px;
+  height: 40px;
+  float: left;
+  display: block;
+}
+
+.horispacer{
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+
+.horispacer2{
+  width: 100%;
+  height: 4px;
+  display: block;
+  border-bottom: 1px solid #232323;
+  margin-bottom: 15px;
+}
+
+/* Generator Actions */
+.actionbox{
+  width: 500px;
+  height: 159px;
+  position: absolute;
+  left: 40px;
+  top: 510px;
+  border-top: 1px solid #232323;
+  padding-top: 9px;
+  z-index: 85;
+}
+
+.actionbox a,
+.actionbox a:visited{
+  background: #202020;
+  border: 0; margin: none;
+  color: #BBB;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  float: left;
+  text-align: center;
+  border-left-width: 5px;
+  border-left-style: solid;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 150ms ease-in-out;
+}
+
+.actionbox a.disabled{
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+a.generate,
+a.height,
+a.colorize,
+a.color{
+  font-size: 18px;
+  width: 215px;
+  padding: 15 15 14 10;
+}
+
+a.undo,
+a.invert,
+a.normal{
+  width: 130px;
+  font-size: 14px;
+  padding: 17 15 17 10;
+  margin-top: 10px;
+}
+
+a.colorize,
+a.color{
+  margin-top: 10px;
+}
+
+a.generate,
+a.colorize,
+a.undo,
+a.invert{
+  margin-right: 10px;
+}
+
+a.generate{ border-left-color: #5D5;}
+a.height{ border-left-color: #80F;}
+a.undo{ border-left-color: #F44;}
+a.invert{ border-left-color: #F80;}
+a.normal{ border-left-color: #08F;}
+a.colorize{ border-left-color: #F08;}
+a.color{ border-left-color: #0BC;}
+
+.actionbox a:hover,
+.actionbox a.active{
+  background: #282828;
+  color: #FFF;
+  border-left-width: 15px;
+  padding-left: 0px;
+}
+
+/* DEBUG */
+#canover{
+  background-color: rgba(0,0,0,0.3);
+  background-image: url(img/canwork.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 40px;
+  top: 60px;
+	width: 490px;
+	height: 490px;
+  z-index: 150;
+  pointer-events: none;
+  opacity: 0;
+	border: 5px solid #FF4444;
+}
+
+#canover.visible{
+  opacity: 1;
+  transition: all 150ms ease-in-out;
+	width: 490px;
+	height: 490px;
+}
+
+#canover.colorizer{
+	transform: translateX(700px);
+}
+
+#colorizer{
+  position: absolute;
+  overflow: hidden;
+  left: 40px;
+  width: 680px;
+  height: 680px;
+  /* background: #555; */
+  padding: 0px 9px 0px 0px;
+  z-index: 150;
+  transform-origin: left center;
+  transform: translateX(-700px);
+  transition: all 150ms ease-in-out;
+	border-right: 1px solid #232323;
+}
+
+#colorizer.hidden{
+  transform: translateX(-730px);
+}
+
+#colorizer .coloreturn{
+  height: 15px;
+  width: 15px;
+  padding: 88px 3px 88px 3px;
+  float: right;
+  background: #282828;
+  position: absolute;
+  right: 0; top: 0;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+
+#colorizer .coloreturn:hover{
+  background: #303030;
+}
+
+#colorizer .coloreturn svg{
+  width: 15px; height: 15px;
+  fill: #F44;
+}
+
+#colorizer img{
+  width: 56px;
+  height: 56px;
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 10px;
+	border: 1px solid #FFF;
+  cursor: pointer;
+}

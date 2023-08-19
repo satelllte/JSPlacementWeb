@@ -1,0 +1,57 @@
+<div class="canvasbox">
+	<div class="viewcontrols disabled">
+		<a href="#" onclick="showHeight(1);">Height</a>
+		<a href="#" onclick="showHeight(0);">Color</a>
+	</div>
+	<div class="canvasboxinner">
+		<canvas id="dis" generated="nope" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+		<canvas id="dat" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+	</div>
+</div>
+
+<div class="editorbox" onclick="hideColorizer();">
+
+	<div class="sliderbox2w">
+		<div class="values">Grid size <output id="gridsize">4</output></div>
+		<div class="slider"><input type="range" value="4" min="4" max="8" step="1" oninput="setValue('#gridsize',value)" onchange="refresh()"></div>
+	</div>
+
+</div>
+
+<div id="colorizer" class="hidden">
+
+</div>
+
+<div class="actionbox">
+	<a href="#" class="generate" onclick="refresh()">Generate</a>
+	<a href="#" class="height disabled" onclick="saveHeight(savename)">Save Height</a>
+	<a href="#" class="undo disabled" onclick="undoMap()">Undo</a>
+	<a href="#" class="invert disabled" onclick="invertMap()">Invert</a>
+	<a href="#" class="normal disabled" onclick="saveNormal(savename)">Save Normal</a>
+	<a href="#" class="colorize disabled" onclick='toggleColorizer()'>Toggle colorizer</a>
+	<a href="#" class="color disabled" onclick="saveColor(savename)">Save Color</a>
+</div>
+
+
+<div id="imgs"></div>
+
+
+<script>
+	function setValue(id,value) {
+		document.querySelector(id).value = value;
+	}
+</script>
+<script src="req/js/gen/common/common.js"></script>
+<script src="req/js/gen/common/colorizer.js"></script>
+<script src="req/js/gen/js-ultra/js-ultra.js"></script>
+<script>
+	var savename = "JS-Ultra-";
+	var seamlsmode;
+	var timestamp;
+	var guidepage = "jsu";
+	$(function() {
+		$("#colorizer").load("pages/gradients.html");
+	});
+</script>

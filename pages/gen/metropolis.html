@@ -1,0 +1,63 @@
+<script>
+	var sprite = [
+		"001",
+	];
+</script>
+
+<div class="canvasbox">
+	<div class="viewcontrols disabled">
+		<a href="#" onclick="showHeight(1);">Height</a>
+		<a href="#" onclick="showHeight(0);">Color</a>
+	</div>
+	<div class="canvasboxinner">
+		<canvas id="dis" generated="nope" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+		<canvas id="dat" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+	</div>
+</div>
+
+<div class="editorbox" onclick="hideColorizer();">
+	<h3><b class="upd">Attention!</b></h3>
+	<p>
+		JSplacement: Metropolis is currenty a rough sketch of an idea I'm working on.</br>
+		None of the maps generated with JS:M have resulted in desired geometry as of June 15th.</br>
+		</br>
+		You can still use JS:M if you want, but honestly, you should wait for further updates in future version.</br>
+	</p>
+</div>
+
+<p id="imgs"></p>
+
+<div id="colorizer" class="hidden">
+</div>
+
+
+<div class="actionbox">
+	<a href="#" class="generate" onclick="refresh()">Generate</a>
+	<a href="#" class="height disabled" onclick="saveHeight(savename)">Save Height</a>
+	<a href="#" class="undo disabled" onclick="undoMap()">Undo</a>
+	<a href="#" class="invert disabled" onclick="invertMap()">Invert</a>
+	<a href="#" class="normal disabled" onclick="saveNormal(savename)">Save Normal</a>
+	<a href="#" class="colorize disabled" onclick='toggleColorizer()'>Toggle colorizer</a>
+	<a href="#" class="color disabled" onclick="saveColor(savename)">Save Color</a>
+</div>
+
+
+<script>
+	function setValue(id,value) {
+		document.querySelector(id).value = value;
+	}
+</script>
+<script src="req/js/gen/common/common.js"></script>
+<script src="req/js/gen/common/colorizer.js"></script>
+<script src="req/js/gen/js-metropolis/js-metropolis.js"></script>
+<script>
+	var savename = "JS-Metropolis-";
+	var seamlsmode = 0;
+	var timestamp;
+	var guidepage = "jsmetropolis";
+	$(function() {
+		$("#colorizer").load("pages/gradients.html");
+	});
+</script>

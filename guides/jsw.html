@@ -1,0 +1,68 @@
+<a href="#" class="closeguide" onclick="closeGuide()">Close guide</a>
+<a href="#" onclick="guidePage('index')">« Guide index</a></br></br>
+
+<h2>JSplacement: Wyre - Generator settings</h2>
+
+<p>
+  <b>Layer count:</b>
+  Defines the amount of overlapping layers of wires from 2 to 255. By default this is 35.
+</p>
+
+<p>
+  <b>Wires per layer:</b>
+  Number of separate wires drawn per each layer. By default this is 3.</br>
+  <b>Warning!</b> Setting this values high may cause serious lag on lower end computers. Tread carefully.
+</p>
+
+<p>
+  <b>Max wire width:</b>
+  Maximum pixel width of the wire. By default this is 64.
+</p>
+
+<p>
+  <b>Max origin spread:</b>
+  This setting adds maximum size of the random offset to wire's point of origin. By default this is 0.
+</p>
+
+<p>
+  <b>Min and max step length:</b>
+  Minimum and maximum required distance between two points on the wire. By default these are 128 and 2048.</br>
+  <b>Warning!</b> Setting these values low may cause serious lag on lower end computers. Tread carefully.
+</p>
+
+<p>
+  <b>Wire color mode:</b>
+  This controls the way wires' brightness is set. Linear and curve draw them from dark to bright layer by layer.</br>
+  Inverted linear and inverted curve draw them from bright to dark. Random selects random brightness from 1 to 255.</br>
+  By default this is set to linear.
+</p>
+
+<p>
+  <b>Wire width mode:</b>
+  This controls the way wires' pixel thickness is set. Linear and curve draw them from thick to thin layer by layer.</br>
+  Inverted linear and inverted curve draw them from thin to thick. Random selects random width from 1 to maximum set width.</br>
+  By default this is set to random.
+</p>
+
+</br>
+<h3>Step directions</h3>
+
+<p>
+  <b>Any:</b>
+  In this mode, wires have 8 different travel directions per step. This is the default value.
+</p>
+
+<p>
+  <b>Cardinal:</b>
+  In this mode, wires have 4 cardinal directions to travel per each step; up, down, left, and right.
+</p>
+
+<p>
+  <b>Diagonal:</b>
+  In this mode, wires can only travel diagonally. Essentially same as Cardinal mode, but everything is at 45° angle.
+</p>
+
+<p>
+  <b>Conical:</b>
+  In this special mode, each wire starts by going one step in any of the 8 direction, and each step afterwards is the same OR +-45° to previous step.
+</p>

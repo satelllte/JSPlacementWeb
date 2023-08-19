@@ -1,0 +1,192 @@
+<div class="canvasbox">
+	<div class="viewcontrols disabled">
+		<a href="#" onclick="showHeight(1);">Height</a>
+		<a href="#" onclick="showHeight(0);">Color</a>
+	</div>
+	<div class="canvasboxinner">
+		<canvas id="dis" generated="nope" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+		<canvas id="dat" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+	</div>
+</div>
+
+<div class="editorbox" onclick="hideColorizer();">
+
+	<!-- Sliders -->
+	<div class="horispacer"></div>
+
+	<div class="sliderbox2w">
+		<div class="values">Scale<output id="scale">20</output></div>
+		<div class="slider"><input type="range" value="20" min="10" max="80" step="1" oninput="setValue('#scale',value)" onchange="refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Minimum brightness <output id="minlight">0</output></div>
+		<div class="slider"><input type="range" value="0" min="0" max="255" step="1" oninput="setValue('#minlight',value)" onchange="refresh()"></div>
+	</div>
+
+	<div class="sliderbox2w">
+		<div class="values">Drawing chance <output id="ratio">2.5</output>%</div>
+		<div class="slider"><input type="range" value="2.5" min="0.1" max="10" step="0.1" oninput="setValue('#ratio',value)" onchange="refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Pattern max length <output id="patmax">5</output></div>
+		<div class="slider"><input type="range" value="5" min="2" max="10" step="1" oninput="setValue('#patmax',value)" onchange="refresh()"></div>
+	</div>
+
+	<div style="clear:both"></div>
+	<div class="horispacer"></div>
+
+	<br>
+	<div class="editlabel">Dot shapes</div>
+	<br>
+	<div class="switchbox6w">
+		<div class="switchname"><img src="./req/img/dots/box.svg"></div>
+		<div class="switch">
+			<input type="checkbox" id="drawBox" checked="checked">
+			<label for="drawBox"></label>
+		</div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox6w">
+		<div class="switchname"><img src="./req/img/dots/square.svg"></div>
+		<div class="switch">
+			<input type="checkbox" id="drawSquare" checked="checked">
+			<label for="drawSquare"></label>
+		</div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox6w">
+		<div class="switchname"><img src="./req/img/dots/circle.svg"></div>
+		<div class="switch">
+			<input type="checkbox" id="drawCircle" checked="checked">
+			<label for="drawCircle"></label>
+		</div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox6w">
+		<div class="switchname"><img src="./req/img/dots/ring.svg"></div>
+		<div class="switch">
+			<input type="checkbox" id="drawRing" checked="checked">
+			<label for="drawRing"></label>
+		</div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox6w">
+		<div class="switchname"><img src="./req/img/dots/diamond.svg"></div>
+		<div class="switch">
+			<input type="checkbox" id="drawDiamond" checked="checked">
+			<label for="drawDiamond"></label>
+		</div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox6w">
+		<div class="switchname"><img src="./req/img/dots/diamondout.svg"></div>
+		<div class="switch">
+			<input type="checkbox" id="drawDiamondOut" checked="checked">
+			<label for="drawDiamondOut"></label>
+		</div>
+	</div>
+
+	<div style="clear:both"></div>
+	<div class="horispacer"></div>
+
+	<br><br>
+	<div class="editlabel">Dot patterns</div>
+	<br>
+	<div class="switchbox7w">
+	  <div class="switchname"><img src="./req/img/dots/pat-xline.svg"></div>
+	  <div class="switch">
+	    <input type="checkbox" id="xLine" checked="checked">
+	    <label for="xLine"></label>
+	  </div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox7w">
+	  <div class="switchname"><img src="./req/img/dots/pat-yline.svg"></div>
+	  <div class="switch">
+	    <input type="checkbox" id="yLine" checked="checked">
+	    <label for="yLine"></label>
+	  </div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox7w">
+	  <div class="switchname"><img src="./req/img/dots/pat-xyadd.svg"></div>
+	  <div class="switch">
+	    <input type="checkbox" id="xyAdd" checked="checked">
+	    <label for="xyAdd"></label>
+	  </div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox7w">
+	  <div class="switchname"><img src="./req/img/dots/pat-yxadd.svg"></div>
+	  <div class="switch">
+	    <input type="checkbox" id="yxAdd" checked="checked">
+	    <label for="yxAdd"></label>
+	  </div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox7w">
+	  <div class="switchname"><img src="./req/img/dots/pat-xysub.svg"></div>
+	  <div class="switch">
+	    <input type="checkbox" id="xySub" checked="checked">
+	    <label for="xySub"></label>
+	  </div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox7w">
+	  <div class="switchname"><img src="./req/img/dots/pat-yxsub.svg"></div>
+	  <div class="switch">
+	    <input type="checkbox" id="yxSub" checked="checked">
+	    <label for="yxSub"></label>
+	  </div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="switchbox7w">
+	  <div class="switchname"><img src="./req/img/dots/pat-xygrid.svg"></div>
+	  <div class="switch">
+	    <input type="checkbox" id="xyGrid" checked="checked">
+	    <label for="xyGrid"></label>
+	  </div>
+	</div>
+
+
+	<div class="codebreak">
+		<input type="checkbox" class="heck" id="heck" value="1">
+		<label for="heck">Break the code</label>
+	</div>
+
+</div>
+
+<div id="colorizer" class="hidden">
+</div>
+
+
+<div class="actionbox">
+	<a href="#" class="generate" onclick="refresh()">Generate</a>
+	<a href="#" class="height disabled" onclick="saveHeight(savename)">Save Height</a>
+	<a href="#" class="undo disabled" onclick="undoMap()">Undo</a>
+	<a href="#" class="invert disabled" onclick="invertMap()">Invert</a>
+	<a href="#" class="normal disabled" onclick="saveNormal(savename)">Save Normal</a>
+</div>
+
+
+<script>
+	function setValue(id,value) {
+		document.querySelector(id).value = value;
+	}
+</script>
+<script src="req/js/gen/common/common.js"></script>
+<script src="req/js/gen/common/colorizer.js"></script>
+<script src="req/js/gen/js-dotgrid/js-dotgrid.js"></script>
+<script>
+	var savename = "JS-dotGrid-";
+	var seamlsmode = 0;
+	var timestamp;
+	var guidepage = "jsdotgrid";
+	$(function() {
+		$("#colorizer").load("pages/gradients.html");
+	});
+</script>

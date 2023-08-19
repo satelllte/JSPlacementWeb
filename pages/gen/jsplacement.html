@@ -1,0 +1,307 @@
+<div class="canvasbox">
+	<div class="viewcontrols disabled">
+		<a href="#" onclick="showHeight(1);">Height</a>
+		<a href="#" onclick="showHeight(0);">Color</a>
+	</div>
+	<div class="canvasboxinner">
+		<canvas id="dis" generated="nope" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+		<canvas id="dat" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+	</div>
+</div>
+
+<div class="editorbox" onclick="hideColorizer();">
+
+	<div class="sliderbox2w">
+		<div class="values">Iterations <output id="iterations">1000</output></div>
+		<div class="slider"><input id="slideiterations" type="range" value="1000" min="10" max="2000" step="10" oninput="setValue('#iterations',value)" onchange="refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Background brightness <output id="bgcol">128</output></div>
+		<div class="slider"><input id="slidebgcol" type="range" value="128" min="0" max="255" step="1" oninput="setValue('#bgcol',value)" onchange="refresh()"></div>
+	</div>
+	<div style="clear:both"></div>
+	<div class="horispacer2"></div>
+
+	<div class="checkNtweak"> <!-- BOX -->
+		<input type="checkbox" id="draw.Box" checked="checked" onchange="refresh()">
+		<label for="draw.Box">
+			<svg viewBox="0 0 50 50" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+				<rect x="5" y="5" width="40" height="40"/>
+			</svg>
+		</label>
+		<div class="Ntweak">
+			<div class="tweak2w dual">
+				<div class="values">
+						<output id="Box.clampmin" class="min">0</output>
+						Brightness clamp
+						<output id="Box.clampmax" class="max">255</output>
+				</div>
+				<input id="slideBox.clampmin" type="range" value="0" min="0" max="255" step="1" oninput="setValue('#Box\\.clampmin',value)" onchange="refresh()">
+				<input id="slideBox.clampmax" type="range" value="255" min="0" max="255" step="1" oninput="setValue('#Box\\.clampmax',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak2w">
+				<div class="values">
+						Scale
+						<output id="Box.scale" class="rosentti">100</output>
+				</div>
+				<input id="slideBox.scale" type="range" value="100" min="50" max="200" step="1" oninput="setValue('#Box\\.scale',value)" onchange="refresh()">
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="checkNtweak"> <!-- BOX-A -->
+		<input type="checkbox" id="draw.BoxA" checked="checked" onchange="refresh()">
+		<label for="draw.BoxA">
+			<svg viewBox="0 0 50 50" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+				<rect x="5" y="5" width="30" height="30" style="fill-opacity:0.8;"/>
+				<rect x="15" y="15" width="30" height="30" style="fill-opacity:0.8;"/>
+			</svg>
+		</label>
+		<div class="Ntweak">
+			<div class="tweak3w dual">
+				<div class="values">
+						<output id="BoxA.clampmin" class="min">0</output>
+						Brightness
+						<output id="BoxA.clampmax" class="max">255</output>
+				</div>
+				<input id="slideBoxA.clampmin" type="range" value="0" min="0" max="255" step="1" oninput="setValue('#BoxA\\.clampmin',value)" onchange="refresh()">
+				<input id="slideBoxA.clampmax" type="range" value="255" min="0" max="255" step="1" oninput="setValue('#BoxA\\.clampmax',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak3w dual">
+				<div class="values">
+						<output id="BoxA.clampAmin" class="min rosentti">50</output>
+						Alpha
+						<output id="BoxA.clampAmax" class="max rosentti">80</output>
+				</div>
+				<input id="slideBoxA.clampAmin" type="range" value="50" min="0" max="100" step="1" oninput="setValue('#BoxA\\.clampAmin',value)" onchange="refresh()">
+				<input id="slideBoxA.clampAmax" type="range" value="80" min="0" max="100" step="1" oninput="setValue('#BoxA\\.clampAmax',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak3w">
+				<div class="values">
+						Scale
+						<output id="BoxA.scale" class="rosentti">100</output>
+				</div>
+				<input id="slideBoxA.scale" type="range" value="100" min="50" max="200" step="1" oninput="setValue('#BoxA\\.scale',value)" onchange="refresh()">
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="checkNtweak"> <!-- GRID  -->
+		<input type="checkbox" id="draw.Grid" checked="checked" onchange="refresh()">
+		<label for="draw.Grid">
+			<svg viewBox="0 0 50 50" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+				<path d="M15,35l0,10l-10,0l0,-10l10,0Zm5,0l10,0l0,10l-10,0l0,-10Zm25,10l-10,0l0,-10l10,0l0,10Zm-30,-25l0,10l-10,0l0,-10l10,0Zm15,10l-10,0l0,-10l10,0l0,10Zm5,-10l10,0l0,10l-10,0l0,-10Zm-20,-15l0,10l-10,0l0,-10l10,0Zm15,10l-10,0l0,-10l10,0l0,10Zm15,-10l0,10l-10,0l0,-10l10,0Z" />
+			</svg>
+		</label>
+		<div class="Ntweak">
+			<div class="tweak4w dual">
+				<div class="values">
+						<output id="Grid.clampmin" class="min">0</output>
+						Bright.
+						<output id="Grid.clampmax" class="max">255</output>
+				</div>
+				<input id="slideGrid.clampmin" type="range" value="0" min="0" max="255" step="1" oninput="setValue('#Grid\\.clampmin',value)" onchange="refresh()">
+				<input id="slideGrid.clampmax" type="range" value="255" min="0" max="255" step="1" oninput="setValue('#Grid\\.clampmax',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Scale
+						<output id="Grid.scale" class="rosentti">100</output>
+				</div>
+				<input id="slideGrid.scale" type="range" value="100" min="50" max="200" step="1" oninput="setValue('#Grid\\.scale',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Spacing
+						<output id="Grid.spacing" class="rosentti">100</output>
+				</div>
+				<input id="slideGrid.spacing" type="range" value="100" min="10" max="990" step="10" oninput="setValue('#Grid\\.spacing',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Max amount
+						<output id="Grid.amount">5</output>
+				</div>
+				<input id="slideGrid.amount" type="range" value="5" min="2" max="10" step="1" oninput="setValue('#Grid\\.amount',value)" onchange="refresh()">
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="checkNtweak"> <!-- BAT-V -->
+		<input type="checkbox" id="draw.BatV" checked="checked" onchange="refresh()">
+		<label for="draw.BatV">
+			<svg viewBox="0 0 50 50" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+				<path d="M15,5l0,40l-10,0l0,-40l10,0Zm30,0l0,40l-10,0l0,-40l10,0Zm-15,0l0,40l-10,0l0,-40l10,0Z" />
+			</svg>
+		</label>
+		<div class="Ntweak">
+			<div class="tweak4w dual">
+				<div class="values">
+						<output id="BatV.clampmin" class="min">0</output>
+						Bright.
+						<output id="BatV.clampmax" class="max">255</output>
+				</div>
+				<input id="slideBatV.clampmin" type="range" value="0" min="0" max="255" step="1" oninput="setValue('#BatV\\.clampmin',value)" onchange="refresh()">
+				<input id="slideBatV.clampmax" type="range" value="255" min="0" max="255" step="1" oninput="setValue('#BatV\\.clampmax',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Scale
+						<output id="BatV.scale" class="rosentti">100</output>
+				</div>
+				<input id="slideBatV.scale" type="range" value="100" min="50" max="200" step="1" oninput="setValue('#BatV\\.scale',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Spacing
+						<output id="BatV.spacing" class="rosentti">100</output>
+				</div>
+				<input id="slideBatV.spacing" type="range" value="100" min="10" max="990" step="10" oninput="setValue('#BatV\\.spacing',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Max amount
+						<output id="BatV.amount">5</output>
+				</div>
+				<input id="slideBatV.amount" type="range" value="5" min="2" max="10" step="1" oninput="setValue('#BatV\\.amount',value)" onchange="refresh()">
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="checkNtweak"> <!-- BAT-H -->
+		<input type="checkbox" id="draw.BatH" checked="checked" onchange="refresh()">
+		<label for="draw.BatH">
+			<svg viewBox="0 0 50 50" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+				<path d="M45,15l-40,0l0,-10l40,0l0,10Zm0,30l-40,0l0,-10l40,0l0,10Zm0,-15l-40,0l0,-10l40,0l0,10Z" />
+			</svg>
+		</label>
+		<div class="Ntweak">
+			<div class="tweak4w dual">
+				<div class="values">
+						<output id="BatH.clampmin" class="min">0</output>
+						Bright.
+						<output id="BatH.clampmax" class="max">255</output>
+				</div>
+				<input id="slideBatH.clampmin" type="range" value="0" min="0" max="255" step="1" oninput="setValue('#BatH\\.clampmin',value)" onchange="refresh()">
+				<input id="slideBatH.clampmax" type="range" value="255" min="0" max="255" step="1" oninput="setValue('#BatH\\.clampmax',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Scale
+						<output id="BatH.scale" class="rosentti">100</output>
+				</div>
+				<input id="slideBatH.scale" type="range" value="100" min="50" max="200" step="1" oninput="setValue('#BatH\\.scale',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Spacing
+						<output id="BatH.spacing" class="rosentti">100</output>
+				</div>
+				<input id="slideBatH.spacing" type="range" value="100" min="10" max="990" step="10" oninput="setValue('#BatH\\.spacing',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak4w">
+				<div class="values">
+						Max amount
+						<output id="BatH.amount">5</output>
+				</div>
+				<input id="slideBatH.amount" type="range" value="5" min="2" max="10" step="1" oninput="setValue('#BatH\\.amount',value)" onchange="refresh()">
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="checkNtweak"> <!-- LINES -->
+		<input type="checkbox" id="draw.Lines" checked="checked" onchange="refresh()">
+		<label for="draw.Lines">
+			<svg viewBox="0 0 50 50" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+				<g>
+					<path d="M5,17.5l40,0" style="fill:none;stroke-width:2px;"/>
+					<path d="M17.5,5l0,40" style="fill:none;stroke-width:2px;"/>
+					<path d="M32.5,20l0,25" style="fill:none;stroke-width:2px;"/>
+				</g>
+			</svg>
+		</label>
+		<div class="Ntweak">
+			<div class="tweak2w dual">
+				<div class="values">
+						<output id="Lines.clampmin" class="min">0</output>
+						Brightness clamp
+						<output id="Lines.clampmax" class="max">255</output>
+				</div>
+				<input id="slideLines.clampmin" type="range" value="0" min="0" max="255" step="1" oninput="setValue('#Lines\\.clampmin',value)" onchange="refresh()">
+				<input id="slideLines.clampmax" type="range" value="255" min="0" max="255" step="1" oninput="setValue('#Lines\\.clampmax',value)" onchange="refresh()">
+			</div>
+			<div class="sliderspacer2"></div>
+			<div class="tweak2w">
+				<div class="values">
+						Line width
+						<output id="Lines.thick">10</output>
+				</div>
+				<input id="slideLines.thick" type="range" value="10" min="1" max="50" step="1" oninput="setValue('#Lines\\.thick',value)" onchange="refresh()">
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+</div>
+
+<div class="newactions">
+	<a href="#" id="RandomizeAll" onclick="randomizeAll()">Randomize</a>
+	<a href="#" id="ShowPresets" onclick="ShowPresets()">Presets</a>
+</div>
+<div id="presetlist" class="hidden">
+</div>
+<div class="presethider" onclick="HidePresets()"></div>
+
+<div id="colorizer" class="hidden">
+</div>
+
+
+<div class="actionbox">
+	<a href="#" class="generate" onclick="refresh()">Generate</a>
+	<a href="#" class="height disabled" onclick="saveHeight(savename)">Save Height</a>
+	<a href="#" class="undo disabled" onclick="undoMap()">Undo</a>
+	<a href="#" class="invert disabled" onclick="invertMap()">Invert</a>
+	<a href="#" class="normal disabled" onclick="saveNormal(savename)">Save Normal</a>
+	<a href="#" class="colorize disabled" onclick='toggleColorizer()'>Toggle colorizer</a>
+	<a href="#" class="color disabled" onclick="saveColor(savename)">Save Color</a>
+</div>
+
+
+<script>
+	function setValue(id,value) {
+		document.querySelector(id).value = value;
+	}
+</script>
+<script src="req/js/gen/common/common.js"></script>
+<script src="req/js/gen/common/colorizer.js"></script>
+<script src="req/js/gen/js-classic/js-classic.js"></script>
+<script src="req/js/gen/js-classic/preset.js"></script>
+<script>
+	var savename = "JS-Classic-";
+	var seamlsmode = 0;
+	var timestamp;
+	var guidepage = "jsc";
+	$(function() {
+		$("#colorizer").load("pages/gradients.html");
+	});
+</script>

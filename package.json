@@ -1,0 +1,45 @@
+{
+  "name": "JSplacement",
+  "version": "1.3.0",
+  "description": "JSplacement",
+  "main": "main.js",
+  "scripts": {
+    "start": "npx electron .",
+    "build": "electron-packager ./ --platform=win32 --out=H:/bakup/Electron/release --arch=x64 --asar --icon=C:/Users/Windmill/Electron/jsico.ico --app-copyright=\"WindmillArt 2019\" --win32metadata.CompanyName=\"WindmillArt.net\" --win32metadata.FileDescription=\"JSplacement\" --win32metadata.OriginalFilename=\"JSplacement.exe\" --win32metadata.ProductName=\"JSplacement\" --overwrite",
+    "bugbuild": "electron-packager ./ --platform=win32 --out=H:/bakup/Electron/release --arch=ia32 --asar --icon=C:/Users/Windmill/Electron/jsico.ico --app-copyright=\"WindmillArt 2019\" --win32metadata.CompanyName=\"WindmillArt.net\" --win32metadata.FileDescription=\"JSplacement\" --win32metadata.OriginalFilename=\"JSplacement.exe\" --win32metadata.ProductName=\"JSplacement\" --overwrite",
+    "macbuild": "electron-packager ./ --platform=darwin --out=/Users/windmill/Electron/release --arch=x64 --asar --icon=/Users/windmill/Electron/jsico.icns --app-copyright=\"WindmillArt 2019\" --overwrite",
+    "linuxbuild": "electron-packager ./ --platform=linux --out=C:/Users/Windmill/Electron/release --arch=x64 --asar --icon=/home/windmill/Electron/jsico.png --app-copyright=\"WindmillArt 2019\" --overwrite",
+    "dist": "build"
+  },
+  "keywords": [],
+  "author": "Windmill",
+  "license": "Don't steal lmao",
+  "build": {
+    "appId": "yourappid",
+    "mac": {
+      "target": "dmg",
+      "icon": "/home/windmill/Electron/jsico.icns"
+    },
+    "linux": {
+      "category": "Graphics",
+      "target": "AppImage"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "C:/Users/Windmill/Electron/jsico.ico"
+    }
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "ini": "^1.3.5",
+    "jquery": "^3.4.0"
+  },
+  "devDependencies": {
+    "electron": "^4.1.4",
+    "electron-builder": "^20.39.0",
+    "electron-packager": "^13.1.1"
+  }
+}

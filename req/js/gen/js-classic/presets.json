@@ -1,0 +1,331 @@
+[
+  {
+    "name" : "Default",
+
+    "iterations" : 1000,
+    "bgcol" : 128,
+
+    "draw" : {
+      "Box" : 1,
+      "BoxA" : 1,
+      "Grid" : 1,
+      "BatV" : 1,
+      "BatH" : 1,
+      "Lines" : 1
+    },
+
+    "Box" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100
+    },
+    "BoxA" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "clampAmin" : 50,
+      "clampAmax" : 80,
+      "scale" : 100
+    },
+    "Grid" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100,
+      "spacing" : 100,
+      "amount" : 5
+    },
+    "BatV" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100,
+      "spacing" : 100,
+      "amount" : 5
+    },
+    "BatH" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100,
+      "spacing" : 100,
+      "amount" : 5
+    },
+    "Lines" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "thick" : 10
+    }
+  },
+
+  {
+    "name" : "Essential",
+
+    "iterations" : 1390,
+    "bgcol" : 27,
+
+    "draw" : {
+      "Box" : 0,
+      "BoxA" : 1,
+      "Grid" : 1,
+      "BatV" : 1,
+      "BatH" : 1,
+      "Lines" : 1
+    },
+
+    "Box" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100
+    },
+    "BoxA" : {
+      "clampmin" : 16,
+      "clampmax" : 36,
+      "clampAmin" : 68,
+      "clampAmax" : 92,
+      "scale" : 178
+    },
+    "Grid" : {
+      "clampmin" : 173,
+      "clampmax" : 214,
+      "scale" : 175,
+      "spacing" : 172,
+      "amount" : 5
+    },
+    "BatV" : {
+      "clampmin" : 74,
+      "clampmax" : 181,
+      "scale" : 97,
+      "spacing" : 667,
+      "amount" : 10
+    },
+    "BatH" : {
+      "clampmin" : 95,
+      "clampmax" : 98,
+      "scale" : 55,
+      "spacing" : 101,
+      "amount" : 3
+    },
+    "Lines" : {
+      "clampmin" : 79,
+      "clampmax" : 138,
+      "thick" : 22
+    }
+  },
+
+  {
+    "name" : "Essential II",
+
+    "iterations" : 1960,
+    "bgcol" : 179,
+
+    "draw" : {
+      "Box" : 0,
+      "BoxA" : 1,
+      "Grid" : 0,
+      "BatV" : 1,
+      "BatH" : 1,
+      "Lines" : 0
+    },
+
+    "Box" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100
+    },
+    "BoxA" : {
+      "clampmin" : 27,
+      "clampmax" : 27,
+      "clampAmin" : 15,
+      "clampAmax" : 67,
+      "scale" : 144
+    },
+    "Grid" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100,
+      "spacing" : 100,
+      "amount" : 5
+    },
+    "BatV" : {
+      "clampmin" : 18,
+      "clampmax" : 168,
+      "scale" : 126,
+      "spacing" : 372,
+      "amount" : 6
+    },
+    "BatH" : {
+      "clampmin" : 121,
+      "clampmax" : 148,
+      "scale" : 62,
+      "spacing" : 144,
+      "amount" : 3
+    },
+    "Lines" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "thick" : 10
+    }
+  },
+
+  {
+    "name" : "Minimal",
+
+    "iterations" : 423,
+    "bgcol" : 157,
+
+    "draw" : {
+      "Box" : 1,
+      "BoxA" : 0,
+      "Grid" : 1,
+      "BatV" : 1,
+      "BatH" : 1,
+      "Lines" : 1
+    },
+
+    "Box" : {
+      "clampmin" : 73,
+      "clampmax" : 74,
+      "scale" : 197
+    },
+    "BoxA" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "clampAmin" : 50,
+      "clampAmax" : 80,
+      "scale" : 100
+    },
+    "Grid" : {
+      "clampmin" : 98,
+      "clampmax" : 235,
+      "scale" : 57,
+      "spacing" : 673,
+      "amount" : 8
+    },
+    "BatV" : {
+      "clampmin" : 6,
+      "clampmax" : 74,
+      "scale" : 103,
+      "spacing" : 673,
+      "amount" : 10
+    },
+    "BatH" : {
+      "clampmin" : 78,
+      "clampmax" : 124,
+      "scale" : 189,
+      "spacing" : 420,
+      "amount" : 8
+    },
+    "Lines" : {
+      "clampmin" : 35,
+      "clampmax" : 197,
+      "thick" : 13
+    }
+  },
+
+  {
+    "name" : "Gnarly",
+
+    "iterations" : 1970,
+    "bgcol" : 252,
+
+    "draw" : {
+      "Box" : 0,
+      "BoxA" : 1,
+      "Grid" : 1,
+      "BatV" : 0,
+      "BatH" : 1,
+      "Lines" : 0
+    },
+
+    "Box" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100
+    },
+    "BoxA" : {
+      "clampmin" : 13,
+      "clampmax" : 20,
+      "clampAmin" : 3,
+      "clampAmax" : 38,
+      "scale" : 110
+    },
+    "Grid" : {
+      "clampmin" : 39,
+      "clampmax" : 245,
+      "scale" : 121,
+      "spacing" : 815,
+      "amount" : 7
+    },
+    "BatV" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100,
+      "spacing" : 100,
+      "amount" : 5
+    },
+    "BatH" : {
+      "clampmin" : 145,
+      "clampmax" : 247,
+      "scale" : 75,
+      "spacing" : 170,
+      "amount" : 7
+    },
+    "Lines" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "thick" : 10
+    }
+  },
+
+  {
+    "name" : "Not dotGrid",
+
+    "iterations" : 2000,
+    "bgcol" : 255,
+
+    "draw" : {
+      "Box" : 0,
+      "BoxA" : 1,
+      "Grid" : 1,
+      "BatV" : 1,
+      "BatH" : 1,
+      "Lines" : 0
+    },
+
+    "Box" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 100
+    },
+    "BoxA" : {
+      "clampmin" : 0,
+      "clampmax" : 0,
+      "clampAmin" : 0,
+      "clampAmax" : 100,
+      "scale" : 100
+    },
+    "Grid" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 50,
+      "spacing" : 500,
+      "amount" : 10
+    },
+    "BatV" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 10,
+      "spacing" : 990,
+      "amount" : 10
+    },
+    "BatH" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "scale" : 10,
+      "spacing" : 990,
+      "amount" : 10
+    },
+    "Lines" : {
+      "clampmin" : 0,
+      "clampmax" : 255,
+      "thick" : 10
+    }
+  }
+]

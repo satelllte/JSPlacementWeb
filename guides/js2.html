@@ -1,0 +1,66 @@
+<a href="#" class="closeguide" onclick="closeGuide()">Close guide</a>
+<a href="#" onclick="guidePage('index')">« Guide index</a></br></br>
+
+<h2>JSplacement: 2 - Generator settings</h2>
+
+<p>
+  <b>Sprite set:</b>
+  This is just as simple as it looks. A selector between sprite sets that come with JSplacement and custom sprites.</br>
+  Please read next page for full documentation on how to make and use custom sprites.
+</p>
+
+<p>
+  <b>Background brightness:</b>
+  Control background color of the map for different results in whatever you're going to do with it.</br>
+  In displacement, setting this to 0 will make everything extrude. 255 does the opposite. By default this is 128.
+</p>
+
+<p>
+  <b>Background iterations:</b>
+  These are sorted sprite draws which happen on the background to fill the holes on the canvas
+  and, in most cases, lowers the required amount of sprites to fill the canvas.
+  Each iteration creates a layer of random sprites in even formation.
+  1 iteration draws a single sprite on whole canvas. 2 iterations draw additional 2x2 sprites.
+  3 iterations draw additional 3x3. 4 iterations draw additional 4x4. Setting background iterations 0 will disable this feature.</br>
+  Total count of sprites per levels are: 1 for 1, 5 for 2, 14 for 3, and 30 for 4. By default this is set to 3.
+</p>
+
+<p>
+  <b>Iterations:</b>
+  This is the main value of JSplacement: 2. It controls the exact amount of sprites drawn onto the canvas
+  with exception when using seamless mode which occasionally performs multiple sprite draws based on co-ordinates.
+  Please note that this is one of two key factors in JSplacement: 2's performance and it will slow down when set to a high value.
+  By default this is set to 125.
+</p>
+
+<p>
+  <b>Sprite scaling:</b>
+  This is the second main value of JSplacement: 2. It controls the average size of generated sprites
+  based on some math thing that I don't even remember anymore, but it made sense when I did it.
+  Sprite scaling should be set together with the amount of iteration to achieve desired look.</br>
+  Please note that just like iterations, sprite scaling affects the overall performance. Larger sprites take longer to generate.
+  By default this is set to 60.
+</p>
+
+<p>
+  <b>Seamless:</b>
+  This switch enables or disables seamless generator mode. In seamless mode, sprites are drawn second time on the opposite side of the canvas
+  if the sprite is out of bounds to create seamless repeating pattern. If sprite overlaps with a corner, additional 3 draws will be done.
+  By default this is turned on.
+<p>
+
+<p>
+  <b>Rotate sprites & Flip sprites:</b>
+  When turned on, generator will randomly rotate and/or mirror the dreawn sprites to add extra variety to the generated map.
+  Rotation is done in steps of 90 degrees (0°, 90°, 180°, 270°). By default both of these are turned on.
+</p>
+
+<p>
+  <b>Blend sprites:</b>
+  When turned on, generated sprite may use lighten/darken blending mode instead of normal mode.
+  The odds of using blending modes are: 60% normal, 20% darken, 20% lighten. By default this is turned on.
+</p>
+
+
+
+<a class="readmore" href="#" onclick="guidePage('js2-2')">JSplacement: 2 - Custom sprites »</a>

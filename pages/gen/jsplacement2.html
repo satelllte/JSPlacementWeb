@@ -1,0 +1,159 @@
+<div class="canvasbox">
+	<div class="viewcontrols disabled">
+		<a href="#" onclick="showHeight(1);">Height</a>
+		<a href="#" onclick="showHeight(0);">Color</a>
+	</div>
+	<div class="canvasboxinner">
+		<canvas id="dis" generated="nope" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+		<canvas id="dat" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+	</div>
+</div>
+
+
+
+<div class="editorbox" onclick="hideColorizer();">
+
+	<!-- Radio (Sprite sets) -->
+	<div class="spritesets">
+
+		<div class="spriteset">
+			<label for="spritea">Classic Set</label>
+			<input type="radio" id="spritea" name="spriteset" value="spritea" onchange="refresh()" checked="checked">
+			<div class="check"></div>
+		</div>
+
+		<div class="sliderspacer"></div>
+
+		<div class="spriteset">
+			<label for="spriteb">Crap Pack</label>
+			<input type="radio" id="spriteb" name="spriteset" value="spriteb" onchange="refresh()">
+			<div class="check"></div>
+		</div>
+
+		<div class="sliderspacer"></div>
+
+		<div class="spriteset">
+			<label for="spritec">BIG:DATA</label>
+			<input type="radio" id="spritec" name="spriteset" value="spritec" onchange="refresh()">
+			<div class="check"></div>
+		</div>
+
+		<div class="spriteset">
+			<label for="sprited">Aggromaxx</label>
+			<input type="radio" id="sprited" name="spriteset" value="sprited" onchange="refresh()">
+			<div class="check"></div>
+		</div>
+
+		<div class="sliderspacer"></div>
+
+		<div class="spriteset">
+			<label for="spritecustom">Custom Sprites</label>
+			<input type="radio" id="spritecustom" name="spriteset" value="spritecustom" onchange="refresh()">
+			<div class="check"></div>
+		</div>
+
+		<div style="clear:both"></div>
+		<div class="horispacer"></div>
+	</div>
+
+	<!-- Sliders -->
+	<div class="horispacer"></div>
+
+	<div class="sliderbox2w">
+		<div class="values">Background brightness <output id="bgcol">128</output></div>
+		<div class="slider"><input type="range" value="128" min="0" max="255" step="1" oninput="setValue('#bgcol',value)" onchange="refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Background iterations <output id="bgits">3</output></div>
+		<div class="slider"><input type="range" value="3" min="0" max="4" step="1" oninput="setValue('#bgits',value)" onchange="refresh()"></div>
+	</div>
+
+	<div class="sliderbox2w">
+		<div class="values">Iterations <output id="iterations">125</output></div>
+		<div class="slider"><input type="range" value="125" min="10" max="500" step="5" oninput="setValue('#iterations',value)" onchange="refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Sprite scaling <output id="minsize">60</output></div>
+		<div class="slider"><input type="range" value="60" min="1" max="120" step="1" oninput="setValue('#minsize',value)" onchange="refresh()"></div>
+	</div>
+
+	<div style="clear:both"></div>
+	<div class="horispacer"></div>
+
+	<!-- Switches -->
+
+	<div class="switchbox4w">
+		<div class="switchname">Seamless</div>
+		<div class="switch">
+			<input type="checkbox" id="seamlsmode" value="1" checked="checked">
+			<label for="seamlsmode"></label>
+		</div>
+	</div>
+
+	<div class="switchbox4w">
+		<div class="switchname">Rotate sprites</div>
+		<div class="switch">
+			<input type="checkbox" id="rotatemode" value="1" checked="checked">
+			<label for="rotatemode"></label>
+		</div>
+	</div>
+
+	<div class="switchbox4w">
+		<div class="switchname">Flip sprites</div>
+		<div class="switch">
+			<input type="checkbox" id="mirrormode" value="1" checked="checked">
+			<label for="mirrormode"></label>
+		</div>
+	</div>
+
+	<div class="switchbox4w">
+		<div class="switchname">Blend sprites</div>
+		<div class="switch">
+			<input type="checkbox" id="blendimode" value="1" checked="checked">
+			<label for="blendimode"></label>
+		</div>
+	</div>
+
+	<div style="clear:both"></div>
+
+</div>
+
+<div id="colorizer" class="hidden">
+
+</div>
+
+<div class="actionbox">
+	<a href="#" class="generate" onclick="refresh()">Generate</a>
+	<a href="#" class="height disabled" onclick="saveHeight(savename)">Save Height</a>
+	<a href="#" class="undo disabled" onclick="undoMap()">Undo</a>
+	<a href="#" class="invert disabled" onclick="invertMap()">Invert</a>
+	<a href="#" class="normal disabled" onclick="saveNormal(savename)">Save Normal</a>
+	<a href="#" class="colorize disabled" onclick='toggleColorizer()'>Toggle colorizer</a>
+	<a href="#" class="color disabled" onclick="saveColor(savename)">Save Color</a>
+</div>
+
+
+<div id="imgs"></div>
+
+
+<script>
+	function setValue(id,value) {
+		document.querySelector(id).value = value;
+	}
+</script>
+<script src="req/js/gen/common/common.js"></script>
+<script src="req/js/gen/common/colorizer.js"></script>
+<script src="req/js/gen/js-2/js-2.js"></script>
+<script>
+	var savename = "JS-2-";
+	var seamlsmode;
+	var timestamp;
+	var guidepage = "js2";
+	$(function() {
+		$("#colorizer").load("pages/gradients.html");
+	});
+</script>

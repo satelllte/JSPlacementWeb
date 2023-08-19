@@ -1,0 +1,126 @@
+<div class="canvasbox">
+	<div class="viewcontrols disabled">
+		<a href="#" onclick="showHeight(1);">Height</a>
+		<a href="#" onclick="showHeight(0);">Color</a>
+	</div>
+	<div class="canvasboxinner">
+		<canvas id="dis" generated="nope" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+		<canvas id="dat" width="8192" height="8192" onclick="refresh()">
+		</canvas>
+	</div>
+</div>
+
+<div class="editorbox" onclick="hideColorizer();">
+
+	<div class="sliderbox2w">
+		<div class="values">Iterations <output id="iterations">100</output></div>
+		<div class="slider"><input type="range" value="100" min="10" max="250" step="5" oninput="setValue('#iterations',value)" onchange="refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Sub-iterations <output id="subiterations">50</output></div>
+		<div class="slider"><input type="range" value="50" min="0" max="100" step="1" oninput="setValue('#subiterations',value)" onchange="refresh()"></div>
+	</div>
+
+	<div class="sliderbox2w">
+		<div class="values">Splitter iterations <output id="iterationsb">50</output></div>
+		<div class="slider"><input type="range" value="50" min="5" max="100" step="5" oninput="setValue('#iterationsb',value)" onchange="refresh()"></div>
+	</div>
+	<div class="sliderspacer"></div>
+	<div class="sliderbox2w">
+		<div class="values">Background brightness <output id="bgcol">128</output></div>
+		<div class="slider"><input type="range" value="128" min="0" max="255" step="1" oninput="setValue('#bgcol',value)" onchange="refresh()"></div>
+	</div>
+
+	<div style="clear:both"></div>
+	<div class="horispacer"></div>
+
+	<!-- Radio -->
+
+	<div class="editlabel">Symmetry along...</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox3w">
+		<input type="radio" id="symmetry0" name="symmetry" value="0" checked="checked" onchange="refresh()">
+		<label for="symmetry0">X & Y</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox3w">
+		<input type="radio" id="symmetry1" name="symmetry" value="1" onchange="refresh()">
+		<label for="symmetry1">X only</label>
+		<div class="check"></div>
+	</div>
+
+	<div class="sliderspacer"></div>
+
+	<div class="radiobox3w">
+		<input type="radio" id="symmetry2" name="symmetry" value="2" onchange="refresh()">
+		<label for="symmetry2">Y only</label>
+		<div class="check"></div>
+	</div>
+
+	<div style="clear:both"></div>
+	<div class="horispacer"></div>
+
+	<!-- Switches -->
+
+	<div class="switchbox2w">
+		<div class="switchname">Use splitter:</div>
+		<div class="switch">
+			<input type="checkbox" id="yes-option" value="1" checked="checked">
+			<label for="yes-option"></label>
+		</div>
+	</div>
+
+	<div class="switchbox2w">
+		<div class="switchname">Use splitter blending:</div>
+		<div class="switch">
+			<input type="checkbox" id="difference-option" value="1" checked="checked">
+			<label for="difference-option"></label>
+		</div>
+	</div>
+
+	<div style="clear:both"></div>
+
+</div>
+
+<div id="colorizer" class="hidden">
+
+</div>
+
+<div class="actionbox">
+	<a href="#" class="generate" onclick="refresh()">Generate</a>
+	<a href="#" class="height disabled" onclick="saveHeight(savename)">Save Height</a>
+	<a href="#" class="undo disabled" onclick="undoMap()">Undo</a>
+	<a href="#" class="invert disabled" onclick="invertMap()">Invert</a>
+	<a href="#" class="normal disabled" onclick="saveNormal(savename)">Save Normal</a>
+	<a href="#" class="colorize disabled" onclick='toggleColorizer()'>Toggle colorizer</a>
+	<a href="#" class="color disabled" onclick="saveColor(savename)">Save Color</a>
+</div>
+
+
+<div id="imgs"></div>
+
+
+<script>
+	function setValue(id,value) {
+		document.querySelector(id).value = value;
+	}
+</script>
+<script src="req/js/gen/common/common.js"></script>
+<script src="req/js/gen/common/colorizer.js"></script>
+<script src="req/js/gen/js-velvet/js-velvet.js"></script>
+<script>
+	var savename = "JS-Velvet-";
+	var seamlsmode;
+	var timestamp;
+	var guidepage = "jsv";
+	$(function() {
+		$("#colorizer").load("pages/gradients.html");
+	});
+</script>

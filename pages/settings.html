@@ -1,0 +1,54 @@
+<div class="settingbox">
+  <div class="settingtitle">Timestamp format</div>
+
+  <div class="radiobox3w">
+		<input type="radio" id="timestampFormat0" name="timestampFormat" value="0" onchange="saveNewSetting($(this).attr('name'))">
+		<label for="timestampFormat0">UNIX</label>
+		<div class="check"></div>
+	</div>
+  <div class="radiobox3w">
+		<input type="radio" id="timestampFormat1" name="timestampFormat" value="1" onchange="saveNewSetting($(this).attr('name'))">
+		<label for="timestampFormat1">Real</label>
+		<div class="check"></div>
+	</div>
+  <div class="radiobox3w">
+		<input type="radio" id="timestampFormat2" name="timestampFormat" value="2" onchange="saveNewSetting($(this).attr('name'))">
+		<label for="timestampFormat2">Compact</label>
+		<div class="check"></div>
+	</div>
+  <div style="clear:both;"></div>
+
+  <div id="showtime"></div>
+
+  <div class="horispacer2"></div>
+
+  <div class="settingtitle">Theme</div>
+
+  <div class="radiobox3w">
+		<input type="radio" id="skin0" name="skin" value="0" onchange="saveNewSetting($(this).attr('name'))">
+		<label for="skin0">Dark</label>
+		<div class="check"></div>
+	</div>
+  <div class="radiobox3w">
+		<input type="radio" id="skin1" name="skin" value="1" onchange="saveNewSetting($(this).attr('name'))">
+		<label for="skin1">Light</label>
+		<div class="check"></div>
+	</div>
+  <div style="clear:both;"></div>
+
+  <div class="horispacer2"></div>
+
+  <b>Skip splash screen:</b> <input type="checkbox" id="skipSplashScreen" onchange="saveNewSetting($(this).attr('id'))">
+  </br>
+  <b>Disable version checker:</b> <input type="checkbox" id="disableUpdateCheck" onchange="saveNewSetting($(this).attr('id'))">
+  </br>
+  <b>Disable animations (for slow machines):</b> <input type="checkbox" id="disableAnimations" onchange="saveNewSetting($(this).attr('id'))">
+
+
+</div>
+
+<script src="req/js/sys/jsunloader.js"></script>
+<script src="req/js/sys/settings.js"></script>
+<script>
+	var guidepage = "index";
+</script>

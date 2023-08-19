@@ -1,0 +1,25 @@
+<span id="gradients">
+</span>
+
+<script>
+  $(function(){
+    var gradlist = document.getElementById("gradients");
+    var gpath = __dirname + "/Gradients";
+    var supported = ["jpg","jpeg","png","gif","bmp"];
+
+    gfiles = fs.readdirSync(gpath);
+
+  	gfiles = gfiles.filter(function(file){
+  		for(i=0;i<supported.length;i++){
+  			if(file.indexOf(supported[i]) !== -1){
+  				return true;
+  			}
+  		}
+  	});
+
+    for (i = 0; i < gfiles.length; i++){
+      gradlist.innerHTML = gradlist.innerHTML + "<img src=\"" + gpath + "/" + gfiles[i] + "\" id=\"" + gfiles[i] + "\" onclick=\"theColorizer($(this).attr('id'))\" />";
+    }
+  });
+  custoloaded = false;
+</script>
