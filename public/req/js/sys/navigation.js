@@ -27,9 +27,12 @@ function loadPage(page){
 }
 
 function goToPage(url) {
-  var shell = require('electron').shell;
-  event.preventDefault();
-  shell.openExternal(url);
+  // WEB_PORT override
+  window.open(url);
+
+  // var shell = require('electron').shell;
+  // event.preventDefault();
+  // shell.openExternal(url);
 }
 
 function guidePage(x){
