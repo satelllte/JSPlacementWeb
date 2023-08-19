@@ -5,7 +5,17 @@
 
 		<title>JSplacement</title>
 		<link rel="stylesheet" type="text/css" href="req/style.css" />
-
+		
+		<!-- WEB_PORT (override start) -->
+		<link rel="stylesheet" type="text/css" href="WEB_PORT.css" />
+		<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/ini@4.1.1/lib/ini.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/electron@26.0.0/index.min.js"></script> -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/fs-extra@11.1.1/lib/index.min.js"></script> -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/browserfs@1.4.3/dist/browserfs.min.js"></script> -->
+		<script src="WEB_PORT.js"></script>
+		<!-- WEB_PORT (override end) -->
 
 		<script src="req/js/sys/backbone.js"></script>
 		<script src="req/js/sys/config.js"></script>
@@ -40,6 +50,13 @@
 						Splash screen: <span id="splashartist"></span>
 				</div>
 		</div>
+
+		<!-- WEB_PORT (override start) -->
+		<div id="WEB_PORT_head">
+			<h1>JSPlacement Web</h1>
+			<a href="https://github.com/satelllte/JSPlacementWeb/" target="_blank">About</a>
+		</div>
+		<!-- WEB_PORT (override end) -->
 
 		<div id="titlebg">
 			<div id="titlebar">
@@ -85,6 +102,10 @@
 		</footer>
 
   </body>
+
+	<!-- WEB_PORT (override start) -->
+	<script src="WEB_PORT_AFTER.js"></script>
+	<!-- WEB_PORT (override end) -->
 
 	<script>
 		$(function() {

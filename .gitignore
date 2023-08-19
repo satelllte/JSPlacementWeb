@@ -1,5 +1,8 @@
 # node.js
 node_modules/
 
+# builds
+dist/
+
 # os-specific
 .DS_Store
