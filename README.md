@@ -8,7 +8,7 @@ Web version of **JSPlacement** - procedural displacement sci-fi maps generator.
 
 ## IMPORTANT INFORMATION !
 
-- I am not the author of this software. All rights belong to [Windmill](https://windmillart.net/) - the creator of JSPlacement desktop application. The only thing I did is ported it to the web.
+- I am not the author of this software. All rights belong to [Windmill](https://windmillart.net/) - the creator of JSPlacement original desktop application. The only thing I did is ported it to web.
 - I don't make any money from this software and I didn't steal it because the source code of any [Electron](https://www.electronjs.org/) app is not protected from reading.
 - The reason for making this port is to keep this amazing, useful and loved piece of software alive ❤️. Also, please consider to support the author of this software - [Windmill](https://windmillart.net/), who wasn't getting enough respect and who eventually [turned it down](https://www.reddit.com/r/blender/comments/zfwmjr/does_anyone_know_what_happened_to_jsplacement/) 😔:
   - https://www.paypal.com/paypalme/WMillArt
