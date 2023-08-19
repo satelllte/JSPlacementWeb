@@ -22,10 +22,13 @@ function loadGrad(){
 	}
 
 	var gradlist = document.getElementById("gradients");
-	var gpath = app.getPath('home') + "/JSplacement/CustomGradients";
+	// WEB_PORT override
+	// var gpath = app.getPath('home') + "/JSplacement/CustomGradients";
+	var gpath = "";
 	var supported = ["jpg","jpeg","png","gif","bmp"];
 
-	gfiles = fs.readdirSync(gpath);
+	// WEB_PORT override
+	// gfiles = fs.readdirSync(gpath);
 
 	gfiles = gfiles.filter(function(file){
 		for(i=0;i<supported.length;i++){

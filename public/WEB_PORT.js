@@ -24,6 +24,30 @@ files = [
   'JS2sprites/Aggromaxx/Wires2.svg',
 ];
 
+// define `gfiles` global variable which contains paths to gradients
+gfiles = [
+  'Gradients/gradi001.png',
+  'Gradients/gradi002.png',
+  'Gradients/gradi003.png',
+  'Gradients/gradi004.png',
+  'Gradients/gradi005.png',
+  'Gradients/gradi006.png',
+  'Gradients/gradi007.png',
+  'Gradients/gradi008.png',
+  'Gradients/gradi009.png',
+  'Gradients/gradi010.png',
+  'Gradients/gradi011.png',
+  'Gradients/gradi012.png',
+  'Gradients/gradi013.png',
+  'Gradients/gradi014.png',
+  'Gradients/gradi015.png',
+  'Gradients/gradi016.png',
+  'Gradients/gradi017.png',
+  'Gradients/gradi018.png',
+  'Gradients/gradi019.png',
+  'Gradients/gradi020.png',
+];
+
 // define global configuration object
 cfg = {
   General: {
