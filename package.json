@@ -11,7 +11,10 @@
     "normal-map",
     "normal-maps",
     "generative-art",
-    "sci-fi"
+    "sci-fi",
+    "blender",
+    "blender-maps",
+    "blender-displacement"
   ],
   "scripts": {
     "dev": "vite dev",
