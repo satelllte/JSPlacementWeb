@@ -4,6 +4,9 @@
   "description": "JSplacement",
   "main": "main.js",
   "scripts": {
+    "web:dev": "vite dev",
+    "web:build": "vite build",
+    "web:preview": "vite preview",
     "start": "npx electron .",
     "build": "electron-packager ./ --platform=win32 --out=H:/bakup/Electron/release --arch=x64 --asar --icon=C:/Users/Windmill/Electron/jsico.ico --app-copyright=\"WindmillArt 2019\" --win32metadata.CompanyName=\"WindmillArt.net\" --win32metadata.FileDescription=\"JSplacement\" --win32metadata.OriginalFilename=\"JSplacement.exe\" --win32metadata.ProductName=\"JSplacement\" --overwrite",
     "bugbuild": "electron-packager ./ --platform=win32 --out=H:/bakup/Electron/release --arch=ia32 --asar --icon=C:/Users/Windmill/Electron/jsico.ico --app-copyright=\"WindmillArt 2019\" --win32metadata.CompanyName=\"WindmillArt.net\" --win32metadata.FileDescription=\"JSplacement\" --win32metadata.OriginalFilename=\"JSplacement.exe\" --win32metadata.ProductName=\"JSplacement\" --overwrite",
@@ -40,6 +43,7 @@
   "devDependencies": {
     "electron": "^4.1.4",
     "electron-builder": "^20.39.0",
-    "electron-packager": "^13.1.1"
+    "electron-packager": "^13.1.1",
+    "vite": "^4.4.9"
   }
 }
