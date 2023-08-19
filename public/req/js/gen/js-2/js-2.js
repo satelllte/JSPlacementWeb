@@ -191,7 +191,23 @@ function spriteSet(dir){
 
 	var supported = ["svg","png"];
 
-	files = fs.readdirSync(path);
+	// Electron:
+	// files = fs.readdirSync(path);
+	// Web:
+	files = [
+		'/JS2sprites/Aggromaxx/001.svg',
+		'/JS2sprites/Aggromaxx/002.svg',
+		'/JS2sprites/Aggromaxx/003.svg',
+		'/JS2sprites/Aggromaxx/003-alt.svg',
+		'/JS2sprites/Aggromaxx/004.svg',
+		'/JS2sprites/Aggromaxx/Addon.svg',
+		'/JS2sprites/Aggromaxx/Addon2.svg',
+		'/JS2sprites/Aggromaxx/Addon3.svg',
+		'/JS2sprites/Aggromaxx/Vent.svg',
+		'/JS2sprites/Aggromaxx/Vent2.svg',
+		'/JS2sprites/Aggromaxx/Wires.svg',
+		'/JS2sprites/Aggromaxx/Wires2.svg',
+	];
 
 	files = files.filter(function(file){
 		for(i=0;i<supported.length;i++){
