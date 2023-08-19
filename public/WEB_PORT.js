@@ -23,3 +23,15 @@ files = [
   'JS2sprites/Aggromaxx/Wires.svg',
   'JS2sprites/Aggromaxx/Wires2.svg',
 ];
+
+// define global configuration object
+cfg = {
+  General: {
+    skipSplashScreen: true,
+    disableAnimations: false,
+    disableUpdateCheck: true,
+    timestampFormat: 0,
+    skin: 0,
+    iddqd: false,
+  }
+}

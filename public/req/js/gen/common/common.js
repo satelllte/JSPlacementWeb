@@ -131,10 +131,10 @@ function saveNormal(savename,depth){
 // Calculate date
 
 function setTimestamp(){
-	if(cfg?.General?.timestampFormat == 0){
+	if(cfg.General.timestampFormat == 0){
 		timestamp = Math.floor(Date.now() / 1000);
 	}
-	if(cfg?.General?.timestampFormat == 1){
+	if(cfg.General.timestampFormat == 1){
 		timestamp = realDate();
 	}
 	else{
