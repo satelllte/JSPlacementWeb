@@ -3,7 +3,8 @@ name: Deploy
 on:
   # Run on pushes targeting the default branch
   push:
-    branches: [$default-branch]
+    branches: 
+      - $default-branch
   # Allow manual workflow runs from the Actions tab
   workflow_dispatch:
 
