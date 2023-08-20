@@ -6,6 +6,7 @@ Web version of **JSPlacement** - procedural displacement sci-fi maps generator.
 
 **https://jsplacementweb.pages.dev/**
 
+<img src="public/WEB_PORT_og_image.png">
 <img src="docs/screenshot.png">
 
 ## IMPORTANT INFORMATION !
