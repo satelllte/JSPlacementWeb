@@ -4,7 +4,7 @@
 
 Web version of **JSPlacement** - procedural displacement sci-fi maps generator.
 
-**https://satelllte.github.io/JSPlacementWeb/**
+**https://jsplacementweb.pages.dev/**
 
 <img src="docs/screenshot.png">
 
