@@ -18,6 +18,10 @@ Web version of **JSPlacement** - procedural displacement sci-fi maps generator.
   - https://ko-fi.com/windmill
 - Note that this software is unstable, because it's a quick port which is missing some features and which might be buggy. This is mostly because there's no file system access given to the web application.
 
+## You might also like 🖤
+
+▶▶▶ Check out **[Displacement X](https://github.com/satelllte/displacementx)** - free and open source alternative of `JSplacement`.
+
 ## Technical details
 
 The original static files of the port moved into `/public` directory, which is served by [Vite](https://vitejs.dev/) tool.
